@@ -13,25 +13,25 @@
 		D2CD9233E0F99548DEBA7796BC3D5ED6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		D468D84CDF25B51EB24D113225220744 /* Pods-GenericTrackingFramework_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD783846E88600CE85157DD7A61FC1C5 /* Pods-GenericTrackingFramework_Tests-dummy.m */; };
 		EF8C5912035A183E4FFD666D5F39EF03 /* Pods-GenericTrackingFramework_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5FA541F7BE27AE14404A19066D6C90 /* Pods-GenericTrackingFramework_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F435AF381EA5DCF200C5EAA9 /* TrackEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF1D1EA5DCF200C5EAA9 /* TrackEventHandler.swift */; };
-		F435AF391EA5DCF200C5EAA9 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF1F1EA5DCF200C5EAA9 /* Rule.swift */; };
-		F435AF3A1EA5DCF200C5EAA9 /* RuleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF201EA5DCF200C5EAA9 /* RuleEngine.swift */; };
-		F435AF3B1EA5DCF200C5EAA9 /* EventThrottler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF221EA5DCF200C5EAA9 /* EventThrottler.swift */; };
-		F435AF3C1EA5DCF200C5EAA9 /* TrackableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF231EA5DCF200C5EAA9 /* TrackableEvent.swift */; };
-		F435AF3D1EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF251EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift */; };
-		F435AF3E1EA5DCF200C5EAA9 /* TrackingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF261EA5DCF200C5EAA9 /* TrackingData.swift */; };
-		F435AF3F1EA5DCF200C5EAA9 /* TrackingDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF281EA5DCF200C5EAA9 /* TrackingDataCollection.swift */; };
-		F435AF401EA5DCF200C5EAA9 /* TrackableASCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF2A1EA5DCF200C5EAA9 /* TrackableASCollectionNode.swift */; };
-		F435AF411EA5DCF200C5EAA9 /* TrackableASTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF2B1EA5DCF200C5EAA9 /* TrackableASTableNode.swift */; };
-		F435AF421EA5DCF200C5EAA9 /* TrackableUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF2C1EA5DCF200C5EAA9 /* TrackableUICollectionView.swift */; };
-		F435AF431EA5DCF200C5EAA9 /* TrackableUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF2D1EA5DCF200C5EAA9 /* TrackableUITableView.swift */; };
-		F435AF441EA5DCF200C5EAA9 /* TrackingDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF2F1EA5DCF200C5EAA9 /* TrackingDataProcessor.swift */; };
-		F435AF451EA5DCF200C5EAA9 /* EventConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF311EA5DCF200C5EAA9 /* EventConsumer.swift */; };
-		F435AF461EA5DCF200C5EAA9 /* RuleBasedEventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF321EA5DCF200C5EAA9 /* RuleBasedEventPublisher.swift */; };
-		F435AF471EA5DCF200C5EAA9 /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF331EA5DCF200C5EAA9 /* TrackingManager.swift */; };
-		F435AF481EA5DCF200C5EAA9 /* TagGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF351EA5DCF200C5EAA9 /* TagGenerator.swift */; };
-		F435AF491EA5DCF200C5EAA9 /* ScreenLevelTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF371EA5DCF200C5EAA9 /* ScreenLevelTracker.swift */; };
-		F435AF4F1EA62DC900C5EAA9 /* ImpressionTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF4E1EA62DC900C5EAA9 /* ImpressionTracking.swift */; };
+		F435AF9D1EA6346800C5EAA9 /* TrackEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF811EA6346800C5EAA9 /* TrackEventHandler.swift */; };
+		F435AF9E1EA6346800C5EAA9 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF831EA6346800C5EAA9 /* Rule.swift */; };
+		F435AF9F1EA6346800C5EAA9 /* RuleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF841EA6346800C5EAA9 /* RuleEngine.swift */; };
+		F435AFA01EA6346800C5EAA9 /* ScreenLevelTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF861EA6346800C5EAA9 /* ScreenLevelTracker.swift */; };
+		F435AFA11EA6346800C5EAA9 /* EventThrottler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF881EA6346800C5EAA9 /* EventThrottler.swift */; };
+		F435AFA21EA6346800C5EAA9 /* TrackableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF891EA6346800C5EAA9 /* TrackableEvent.swift */; };
+		F435AFA31EA6346800C5EAA9 /* TrackableASCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF8B1EA6346800C5EAA9 /* TrackableASCollectionNode.swift */; };
+		F435AFA41EA6346800C5EAA9 /* TrackableASTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF8C1EA6346800C5EAA9 /* TrackableASTableNode.swift */; };
+		F435AFA51EA6346800C5EAA9 /* TrackableUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF8D1EA6346800C5EAA9 /* TrackableUICollectionView.swift */; };
+		F435AFA61EA6346800C5EAA9 /* TrackableUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF8E1EA6346800C5EAA9 /* TrackableUITableView.swift */; };
+		F435AFA71EA6346800C5EAA9 /* ContentTrackableEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF901EA6346800C5EAA9 /* ContentTrackableEntityProtocol.swift */; };
+		F435AFA81EA6346800C5EAA9 /* ImpressionTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF911EA6346800C5EAA9 /* ImpressionTracking.swift */; };
+		F435AFA91EA6346800C5EAA9 /* TrackingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF921EA6346800C5EAA9 /* TrackingData.swift */; };
+		F435AFAA1EA6346800C5EAA9 /* TrackingDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF941EA6346800C5EAA9 /* TrackingDataCollection.swift */; };
+		F435AFAB1EA6346800C5EAA9 /* TrackingDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF961EA6346800C5EAA9 /* TrackingDataProcessor.swift */; };
+		F435AFAC1EA6346800C5EAA9 /* EventConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF981EA6346800C5EAA9 /* EventConsumer.swift */; };
+		F435AFAD1EA6346800C5EAA9 /* RuleBasedEventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF991EA6346800C5EAA9 /* RuleBasedEventPublisher.swift */; };
+		F435AFAE1EA6346800C5EAA9 /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF9A1EA6346800C5EAA9 /* TrackingManager.swift */; };
+		F435AFAF1EA6346800C5EAA9 /* TagGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF9C1EA6346800C5EAA9 /* TagGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,25 +65,25 @@
 		BE9B713926428822D95CDA62EE0F78F1 /* Pods-GenericTrackingFramework_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GenericTrackingFramework_Tests-resources.sh"; sourceTree = "<group>"; };
 		C87F51012DAB15C748CBCE04963C9489 /* Pods-GenericTrackingFramework_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GenericTrackingFramework_Tests.modulemap"; sourceTree = "<group>"; };
 		CE5FA541F7BE27AE14404A19066D6C90 /* Pods-GenericTrackingFramework_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GenericTrackingFramework_Tests-umbrella.h"; sourceTree = "<group>"; };
-		F435AF1D1EA5DCF200C5EAA9 /* TrackEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackEventHandler.swift; sourceTree = "<group>"; };
-		F435AF1F1EA5DCF200C5EAA9 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
-		F435AF201EA5DCF200C5EAA9 /* RuleEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEngine.swift; sourceTree = "<group>"; };
-		F435AF221EA5DCF200C5EAA9 /* EventThrottler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventThrottler.swift; sourceTree = "<group>"; };
-		F435AF231EA5DCF200C5EAA9 /* TrackableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableEvent.swift; sourceTree = "<group>"; };
-		F435AF251EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTrackableEntityProtocol.swift; sourceTree = "<group>"; };
-		F435AF261EA5DCF200C5EAA9 /* TrackingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingData.swift; sourceTree = "<group>"; };
-		F435AF281EA5DCF200C5EAA9 /* TrackingDataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataCollection.swift; sourceTree = "<group>"; };
-		F435AF2A1EA5DCF200C5EAA9 /* TrackableASCollectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASCollectionNode.swift; sourceTree = "<group>"; };
-		F435AF2B1EA5DCF200C5EAA9 /* TrackableASTableNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASTableNode.swift; sourceTree = "<group>"; };
-		F435AF2C1EA5DCF200C5EAA9 /* TrackableUICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableUICollectionView.swift; sourceTree = "<group>"; };
-		F435AF2D1EA5DCF200C5EAA9 /* TrackableUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableUITableView.swift; sourceTree = "<group>"; };
-		F435AF2F1EA5DCF200C5EAA9 /* TrackingDataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataProcessor.swift; sourceTree = "<group>"; };
-		F435AF311EA5DCF200C5EAA9 /* EventConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConsumer.swift; sourceTree = "<group>"; };
-		F435AF321EA5DCF200C5EAA9 /* RuleBasedEventPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleBasedEventPublisher.swift; sourceTree = "<group>"; };
-		F435AF331EA5DCF200C5EAA9 /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
-		F435AF351EA5DCF200C5EAA9 /* TagGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagGenerator.swift; sourceTree = "<group>"; };
-		F435AF371EA5DCF200C5EAA9 /* ScreenLevelTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenLevelTracker.swift; sourceTree = "<group>"; };
-		F435AF4E1EA62DC900C5EAA9 /* ImpressionTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressionTracking.swift; sourceTree = "<group>"; };
+		F435AF811EA6346800C5EAA9 /* TrackEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackEventHandler.swift; sourceTree = "<group>"; };
+		F435AF831EA6346800C5EAA9 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		F435AF841EA6346800C5EAA9 /* RuleEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEngine.swift; sourceTree = "<group>"; };
+		F435AF861EA6346800C5EAA9 /* ScreenLevelTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenLevelTracker.swift; sourceTree = "<group>"; };
+		F435AF881EA6346800C5EAA9 /* EventThrottler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventThrottler.swift; sourceTree = "<group>"; };
+		F435AF891EA6346800C5EAA9 /* TrackableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableEvent.swift; sourceTree = "<group>"; };
+		F435AF8B1EA6346800C5EAA9 /* TrackableASCollectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASCollectionNode.swift; sourceTree = "<group>"; };
+		F435AF8C1EA6346800C5EAA9 /* TrackableASTableNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASTableNode.swift; sourceTree = "<group>"; };
+		F435AF8D1EA6346800C5EAA9 /* TrackableUICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableUICollectionView.swift; sourceTree = "<group>"; };
+		F435AF8E1EA6346800C5EAA9 /* TrackableUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableUITableView.swift; sourceTree = "<group>"; };
+		F435AF901EA6346800C5EAA9 /* ContentTrackableEntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTrackableEntityProtocol.swift; sourceTree = "<group>"; };
+		F435AF911EA6346800C5EAA9 /* ImpressionTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressionTracking.swift; sourceTree = "<group>"; };
+		F435AF921EA6346800C5EAA9 /* TrackingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingData.swift; sourceTree = "<group>"; };
+		F435AF941EA6346800C5EAA9 /* TrackingDataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataCollection.swift; sourceTree = "<group>"; };
+		F435AF961EA6346800C5EAA9 /* TrackingDataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataProcessor.swift; sourceTree = "<group>"; };
+		F435AF981EA6346800C5EAA9 /* EventConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConsumer.swift; sourceTree = "<group>"; };
+		F435AF991EA6346800C5EAA9 /* RuleBasedEventPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleBasedEventPublisher.swift; sourceTree = "<group>"; };
+		F435AF9A1EA6346800C5EAA9 /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
+		F435AF9C1EA6346800C5EAA9 /* TagGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,107 +201,107 @@
 		E5F3262F92DB1BDA6D1888DBBFAB2FF9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF1C1EA5DCF200C5EAA9 /* EventHandlers */,
-				F435AF1E1EA5DCF200C5EAA9 /* RuleEngine */,
-				F435AF211EA5DCF200C5EAA9 /* ThrottlingManager */,
-				F435AF241EA5DCF200C5EAA9 /* TrackDataModels */,
-				F435AF271EA5DCF200C5EAA9 /* TrackingDataCollection */,
-				F435AF291EA5DCF200C5EAA9 /* TrackableContainerViews */,
-				F435AF2E1EA5DCF200C5EAA9 /* TrackingDataProcessor */,
-				F435AF301EA5DCF200C5EAA9 /* TrackingManager */,
-				F435AF341EA5DCF200C5EAA9 /* Utils */,
-				F435AF361EA5DCF200C5EAA9 /* ScreenLevelTracker */,
+				F435AF801EA6346800C5EAA9 /* EventHandlers */,
+				F435AF821EA6346800C5EAA9 /* RuleEngine */,
+				F435AF851EA6346800C5EAA9 /* ScreenLevelTracker */,
+				F435AF871EA6346800C5EAA9 /* ThrottlingManager */,
+				F435AF8A1EA6346800C5EAA9 /* TrackableContainerViews */,
+				F435AF8F1EA6346800C5EAA9 /* TrackDataModels */,
+				F435AF931EA6346800C5EAA9 /* TrackingDataCollection */,
+				F435AF951EA6346800C5EAA9 /* TrackingDataProcessor */,
+				F435AF971EA6346800C5EAA9 /* TrackingManager */,
+				F435AF9B1EA6346800C5EAA9 /* Utils */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		F435AF1C1EA5DCF200C5EAA9 /* EventHandlers */ = {
+		F435AF801EA6346800C5EAA9 /* EventHandlers */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF1D1EA5DCF200C5EAA9 /* TrackEventHandler.swift */,
+				F435AF811EA6346800C5EAA9 /* TrackEventHandler.swift */,
 			);
 			path = EventHandlers;
 			sourceTree = "<group>";
 		};
-		F435AF1E1EA5DCF200C5EAA9 /* RuleEngine */ = {
+		F435AF821EA6346800C5EAA9 /* RuleEngine */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF1F1EA5DCF200C5EAA9 /* Rule.swift */,
-				F435AF201EA5DCF200C5EAA9 /* RuleEngine.swift */,
+				F435AF831EA6346800C5EAA9 /* Rule.swift */,
+				F435AF841EA6346800C5EAA9 /* RuleEngine.swift */,
 			);
 			path = RuleEngine;
 			sourceTree = "<group>";
 		};
-		F435AF211EA5DCF200C5EAA9 /* ThrottlingManager */ = {
+		F435AF851EA6346800C5EAA9 /* ScreenLevelTracker */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF221EA5DCF200C5EAA9 /* EventThrottler.swift */,
-				F435AF231EA5DCF200C5EAA9 /* TrackableEvent.swift */,
+				F435AF861EA6346800C5EAA9 /* ScreenLevelTracker.swift */,
+			);
+			path = ScreenLevelTracker;
+			sourceTree = "<group>";
+		};
+		F435AF871EA6346800C5EAA9 /* ThrottlingManager */ = {
+			isa = PBXGroup;
+			children = (
+				F435AF881EA6346800C5EAA9 /* EventThrottler.swift */,
+				F435AF891EA6346800C5EAA9 /* TrackableEvent.swift */,
 			);
 			path = ThrottlingManager;
 			sourceTree = "<group>";
 		};
-		F435AF241EA5DCF200C5EAA9 /* TrackDataModels */ = {
+		F435AF8A1EA6346800C5EAA9 /* TrackableContainerViews */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF4E1EA62DC900C5EAA9 /* ImpressionTracking.swift */,
-				F435AF251EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift */,
-				F435AF261EA5DCF200C5EAA9 /* TrackingData.swift */,
-			);
-			path = TrackDataModels;
-			sourceTree = "<group>";
-		};
-		F435AF271EA5DCF200C5EAA9 /* TrackingDataCollection */ = {
-			isa = PBXGroup;
-			children = (
-				F435AF281EA5DCF200C5EAA9 /* TrackingDataCollection.swift */,
-			);
-			path = TrackingDataCollection;
-			sourceTree = "<group>";
-		};
-		F435AF291EA5DCF200C5EAA9 /* TrackableContainerViews */ = {
-			isa = PBXGroup;
-			children = (
-				F435AF2A1EA5DCF200C5EAA9 /* TrackableASCollectionNode.swift */,
-				F435AF2B1EA5DCF200C5EAA9 /* TrackableASTableNode.swift */,
-				F435AF2C1EA5DCF200C5EAA9 /* TrackableUICollectionView.swift */,
-				F435AF2D1EA5DCF200C5EAA9 /* TrackableUITableView.swift */,
+				F435AF8B1EA6346800C5EAA9 /* TrackableASCollectionNode.swift */,
+				F435AF8C1EA6346800C5EAA9 /* TrackableASTableNode.swift */,
+				F435AF8D1EA6346800C5EAA9 /* TrackableUICollectionView.swift */,
+				F435AF8E1EA6346800C5EAA9 /* TrackableUITableView.swift */,
 			);
 			path = TrackableContainerViews;
 			sourceTree = "<group>";
 		};
-		F435AF2E1EA5DCF200C5EAA9 /* TrackingDataProcessor */ = {
+		F435AF8F1EA6346800C5EAA9 /* TrackDataModels */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF2F1EA5DCF200C5EAA9 /* TrackingDataProcessor.swift */,
+				F435AF901EA6346800C5EAA9 /* ContentTrackableEntityProtocol.swift */,
+				F435AF911EA6346800C5EAA9 /* ImpressionTracking.swift */,
+				F435AF921EA6346800C5EAA9 /* TrackingData.swift */,
+			);
+			path = TrackDataModels;
+			sourceTree = "<group>";
+		};
+		F435AF931EA6346800C5EAA9 /* TrackingDataCollection */ = {
+			isa = PBXGroup;
+			children = (
+				F435AF941EA6346800C5EAA9 /* TrackingDataCollection.swift */,
+			);
+			path = TrackingDataCollection;
+			sourceTree = "<group>";
+		};
+		F435AF951EA6346800C5EAA9 /* TrackingDataProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				F435AF961EA6346800C5EAA9 /* TrackingDataProcessor.swift */,
 			);
 			path = TrackingDataProcessor;
 			sourceTree = "<group>";
 		};
-		F435AF301EA5DCF200C5EAA9 /* TrackingManager */ = {
+		F435AF971EA6346800C5EAA9 /* TrackingManager */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF311EA5DCF200C5EAA9 /* EventConsumer.swift */,
-				F435AF321EA5DCF200C5EAA9 /* RuleBasedEventPublisher.swift */,
-				F435AF331EA5DCF200C5EAA9 /* TrackingManager.swift */,
+				F435AF981EA6346800C5EAA9 /* EventConsumer.swift */,
+				F435AF991EA6346800C5EAA9 /* RuleBasedEventPublisher.swift */,
+				F435AF9A1EA6346800C5EAA9 /* TrackingManager.swift */,
 			);
 			path = TrackingManager;
 			sourceTree = "<group>";
 		};
-		F435AF341EA5DCF200C5EAA9 /* Utils */ = {
+		F435AF9B1EA6346800C5EAA9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F435AF351EA5DCF200C5EAA9 /* TagGenerator.swift */,
+				F435AF9C1EA6346800C5EAA9 /* TagGenerator.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		F435AF361EA5DCF200C5EAA9 /* ScreenLevelTracker */ = {
-			isa = PBXGroup;
-			children = (
-				F435AF371EA5DCF200C5EAA9 /* ScreenLevelTracker.swift */,
-			);
-			path = ScreenLevelTracker;
 			sourceTree = "<group>";
 		};
 		F9B473BA7389EFF365D58A696EF6773E /* GenericTrackingFramework */ = {
@@ -379,11 +379,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					C98A780D628E1F8A8C307F896ECAE4A7 = {
-						LastSwiftMigration = 0820;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -416,26 +411,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F435AF391EA5DCF200C5EAA9 /* Rule.swift in Sources */,
-				F435AF431EA5DCF200C5EAA9 /* TrackableUITableView.swift in Sources */,
-				F435AF481EA5DCF200C5EAA9 /* TagGenerator.swift in Sources */,
-				F435AF401EA5DCF200C5EAA9 /* TrackableASCollectionNode.swift in Sources */,
-				F435AF3A1EA5DCF200C5EAA9 /* RuleEngine.swift in Sources */,
-				F435AF3F1EA5DCF200C5EAA9 /* TrackingDataCollection.swift in Sources */,
-				F435AF441EA5DCF200C5EAA9 /* TrackingDataProcessor.swift in Sources */,
-				F435AF491EA5DCF200C5EAA9 /* ScreenLevelTracker.swift in Sources */,
-				F435AF3E1EA5DCF200C5EAA9 /* TrackingData.swift in Sources */,
-				F435AF3C1EA5DCF200C5EAA9 /* TrackableEvent.swift in Sources */,
-				F435AF411EA5DCF200C5EAA9 /* TrackableASTableNode.swift in Sources */,
-				F435AF3B1EA5DCF200C5EAA9 /* EventThrottler.swift in Sources */,
-				F435AF421EA5DCF200C5EAA9 /* TrackableUICollectionView.swift in Sources */,
+				F435AFAA1EA6346800C5EAA9 /* TrackingDataCollection.swift in Sources */,
 				8A225A6804E9F6D8A597756C38011DD1 /* GenericTrackingFramework-dummy.m in Sources */,
-				F435AF3D1EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift in Sources */,
-				F435AF4F1EA62DC900C5EAA9 /* ImpressionTracking.swift in Sources */,
-				F435AF451EA5DCF200C5EAA9 /* EventConsumer.swift in Sources */,
-				F435AF381EA5DCF200C5EAA9 /* TrackEventHandler.swift in Sources */,
-				F435AF471EA5DCF200C5EAA9 /* TrackingManager.swift in Sources */,
-				F435AF461EA5DCF200C5EAA9 /* RuleBasedEventPublisher.swift in Sources */,
+				F435AF9F1EA6346800C5EAA9 /* RuleEngine.swift in Sources */,
+				F435AFA41EA6346800C5EAA9 /* TrackableASTableNode.swift in Sources */,
+				F435AFAC1EA6346800C5EAA9 /* EventConsumer.swift in Sources */,
+				F435AFA21EA6346800C5EAA9 /* TrackableEvent.swift in Sources */,
+				F435AFA71EA6346800C5EAA9 /* ContentTrackableEntityProtocol.swift in Sources */,
+				F435AFA11EA6346800C5EAA9 /* EventThrottler.swift in Sources */,
+				F435AF9E1EA6346800C5EAA9 /* Rule.swift in Sources */,
+				F435AFA01EA6346800C5EAA9 /* ScreenLevelTracker.swift in Sources */,
+				F435AFA61EA6346800C5EAA9 /* TrackableUITableView.swift in Sources */,
+				F435AFAB1EA6346800C5EAA9 /* TrackingDataProcessor.swift in Sources */,
+				F435AFA91EA6346800C5EAA9 /* TrackingData.swift in Sources */,
+				F435AFA51EA6346800C5EAA9 /* TrackableUICollectionView.swift in Sources */,
+				F435AFAE1EA6346800C5EAA9 /* TrackingManager.swift in Sources */,
+				F435AF9D1EA6346800C5EAA9 /* TrackEventHandler.swift in Sources */,
+				F435AFAD1EA6346800C5EAA9 /* RuleBasedEventPublisher.swift in Sources */,
+				F435AFA31EA6346800C5EAA9 /* TrackableASCollectionNode.swift in Sources */,
+				F435AFA81EA6346800C5EAA9 /* ImpressionTracking.swift in Sources */,
+				F435AFAF1EA6346800C5EAA9 /* TagGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +580,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBB8263A6EEBDF9756E55BE726B09976 /* GenericTrackingFramework.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -620,7 +614,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBB8263A6EEBDF9756E55BE726B09976 /* GenericTrackingFramework.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

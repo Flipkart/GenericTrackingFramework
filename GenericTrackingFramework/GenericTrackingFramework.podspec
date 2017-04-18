@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 A Framework for tracking % visibility of each widget and its content
-                       DESC
+DESC
 
   s.homepage         = 'https://github.com/kratijain-flipkart/GenericTrackingFramework'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -37,6 +37,6 @@ A Framework for tracking % visibility of each widget and its content
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-   s.frameworks = 'UIKit'
-   s.dependency 'AsyncDisplayKit', '2.2'
+    s.frameworks = 'UIKit'
+    s.dependency 'AsyncDisplayKit', '2.2'
 end

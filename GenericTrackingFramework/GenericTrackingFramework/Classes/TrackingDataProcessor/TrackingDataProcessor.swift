@@ -32,17 +32,17 @@ struct TrackingDataProcessor : TrackingEntityProcessor{
     }
     
     mutating func updateData(_ trackData : TrackingData){
-    
+        
         let dataId = trackData.uniqueId
         
         if let oldData = (self.activeTrackData.getData(for: dataId)?.data){
             oldData.absoluteFrame = trackData.absoluteFrame
-            oldData.actionTracking = trackData.actionTracking //should we update tracking??
+            oldData.impressionTracking = trackData.impressionTracking //should we update tracking??
             oldData.percentVisibility = trackData.percentVisibility
             
             self.activeTrackData.update(data:oldData,for:dataId)
         }
-
+        
     }
     
     mutating func updateRelevantData(_ eventData : EventData){
@@ -105,14 +105,14 @@ struct TrackingDataProcessor : TrackingEntityProcessor{
         var tag : String? = trackData.affectingScrollViewTag
         
         while let scrollTag = tag,let scrollViewData = self.activeTrackData.getData(for: scrollTag)?.data{
-                let parentFrame = scrollViewData.absoluteFrame
-                visibleFrame = visibleFrame.intersection(parentFrame)
-                
-                tag = scrollViewData.parentId
+            let parentFrame = scrollViewData.absoluteFrame
+            visibleFrame = visibleFrame.intersection(parentFrame)
+            
+            tag = scrollViewData.parentId
         }
         
         let visibleArea :Float = Float(visibleFrame.size.width)*Float(visibleFrame.size.height)
-
+        
         if totalArea>0{
             visibility = visibleArea*100/totalArea
         }
