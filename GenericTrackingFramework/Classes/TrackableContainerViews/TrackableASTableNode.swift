@@ -18,7 +18,7 @@ open class TrackableASTableNode : ASTableNode,ContentTrackableEntityProtocol{
         didSet{
             if isScrollable{
                 tracker?.registerScrollView(self.view)
-                trackData = FrameData(uId: String(self.view.tag), frame: CGRect.zero, wigTracking: nil)
+                trackData = FrameData(uId: String(self.view.tag), frame: CGRect.zero, impressionTracking: nil)
             }
             wrapperDelegate?.trackerDelegate = tracker
         }

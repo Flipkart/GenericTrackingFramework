@@ -15,12 +15,12 @@ class FrameData : NSObject{
     
     var uniqueId : String
     var absoluteFrame : CGRect
-    var wigTracking : NHPWidgetTracking?
+    var impressionTracking : ImpressionTracking?
     
-    init(uId:String,frame:CGRect,wigTracking:NHPWidgetTracking?){
+    init(uId:String,frame:CGRect,impressionTracking:ImpressionTracking?){
         self.uniqueId = uId
         self.absoluteFrame = frame
-        self.wigTracking = wigTracking
+        self.impressionTracking = impressionTracking
     }
 }
 
@@ -32,5 +32,5 @@ class FrameData : NSObject{
     
     //the list of content that need to be tracked
     func getTrackableChildren()-> [ContentTrackableEntityProtocol]?
-
+    
 }

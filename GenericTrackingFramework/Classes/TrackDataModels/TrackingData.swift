@@ -37,15 +37,15 @@ class TrackingData{
         }
     }
     
-    var actionTracking : NHPWidgetTracking?
+    var impressionTracking : ImpressionTracking?
     
     var isScrollView : Bool = false
     var startTime : Date
     
-    init(uniqueId:String,eventSourceTag:String?,frame:CGRect,actionTracking:NHPWidgetTracking?) {
+    init(uniqueId:String,eventSourceTag:String?,frame:CGRect,impressionTracking:ImpressionTracking?) {
         self.screen = unknown
         self.percentVisibility = 0
-        self.actionTracking = actionTracking
+        self.impressionTracking = impressionTracking
         self.uniqueId = uniqueId
         self.affectingScrollViewTag = eventSourceTag
         self.absoluteFrame = frame
@@ -58,7 +58,7 @@ class TrackingData{
         
         if let data = event.eventData as? ViewEventData{
             self.percentVisibility = data.percentVisibility
-            self.actionTracking = data.actionTracking
+            self.impressionTracking = data.impressionTracking
             self.uniqueId = data.uniqueId
             self.affectingScrollViewTag = data.affectingScrollTag
             self.absoluteFrame = data.absoluteFrame

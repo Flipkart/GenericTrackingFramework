@@ -84,13 +84,13 @@ struct ViewEventData : EventData{
     var affectingScrollTag:String?
     var parentId : String?
     var absoluteFrame: CGRect
-    var actionTracking : NHPWidgetTracking?
+    var impressionTracking : ImpressionTracking?
     var percentVisibility : Float
     
-    init(screen:String,uniqueId:String,absoluteFrame : CGRect,wigTracking:NHPWidgetTracking?,percentVisibility:Float,scrollTag:String?,parentId:String?, isScrollView:Bool=false){
+    init(screen:String,uniqueId:String,absoluteFrame : CGRect,impressionTracking:ImpressionTracking?,percentVisibility:Float,scrollTag:String?,parentId:String?, isScrollView:Bool=false){
         self.uniqueId = uniqueId
         self.absoluteFrame = absoluteFrame
-        self.actionTracking = wigTracking
+        self.impressionTracking = impressionTracking
         self.percentVisibility = percentVisibility
         self.screen = screen
         

@@ -16,7 +16,7 @@ open class TrackableUITableView : UITableView{
         didSet{
             if isScrollable{
                 tracker?.registerScrollView(self)
-                trackData = FrameData(uId: String(self.tag), frame: CGRect.zero, wigTracking: nil)
+                trackData = FrameData(uId: String(self.tag), frame: CGRect.zero, impressionTracking: nil)
             }
             wrapperDelegate?.trackerDelegate = tracker
         }

@@ -58,10 +58,10 @@ public class ScreenLevelTracker : NSObject,UIScrollViewDelegate{
         var parentScrollTag = scrollTag
         var parent = parentId
         
-        //prepare ID,WigTracking data and pass to throttler
+        //prepare ID,impressionTracking data and pass to throttler
         if let trackData = view.trackData{
             
-            let eventData = ViewEventData(screen:self.eventScreen,uniqueId:trackData.uniqueId,absoluteFrame:trackData.absoluteFrame,wigTracking:trackData.wigTracking,percentVisibility:0,scrollTag:scrollTag,parentId:parent)
+            let eventData = ViewEventData(screen:self.eventScreen,uniqueId:trackData.uniqueId,absoluteFrame:trackData.absoluteFrame,impressionTracking:trackData.impressionTracking,percentVisibility:0,scrollTag:scrollTag,parentId:parent)
             let event = TrackableEvent(eventType:event,eventData:eventData)
             throttler.throttleEvent(event)
             
@@ -101,7 +101,7 @@ public class ScreenLevelTracker : NSObject,UIScrollViewDelegate{
             
             if let validTag = tag{
                 //create an event for this scrollView
-                let eventData = ViewEventData(screen:self.eventScreen,uniqueId:String(validTag),absoluteFrame:absoluteFrame,wigTracking:nil,percentVisibility:0,scrollTag:scrollTag,parentId:parentId,isScrollView:true)
+                let eventData = ViewEventData(screen:self.eventScreen,uniqueId:String(validTag),absoluteFrame:absoluteFrame,impressionTracking:nil,percentVisibility:0,scrollTag:scrollTag,parentId:parentId,isScrollView:true)
                 let event = TrackableEvent(eventType:event,eventData:eventData)
                 throttler.throttleEvent(event)
                 
@@ -129,17 +129,17 @@ public class ScreenLevelTracker : NSObject,UIScrollViewDelegate{
     func trackViewAppear(trackData : FrameData?){
         //update visiblity %
         if let trackData = trackData{
-            let eventData = ViewEventData(screen: self.eventScreen, uniqueId: trackData.uniqueId, absoluteFrame: trackData.absoluteFrame, wigTracking: trackData.wigTracking, percentVisibility: 0,scrollTag:nil,parentId:nil)
+            let eventData = ViewEventData(screen: self.eventScreen, uniqueId: trackData.uniqueId, absoluteFrame: trackData.absoluteFrame, impressionTracking: trackData.impressionTracking, percentVisibility: 0,scrollTag:nil,parentId:nil)
             let event = TrackableEvent(eventType:.viewStarted,eventData:eventData)
             throttler.throttleEvent(event)
         }
     }
     
-
+    
     func trackViewDisappear(trackData : FrameData?){
         //delete the entry the widget/content
         if let trackData = trackData{
-            let eventData = ViewEventData(screen: self.eventScreen, uniqueId: trackData.uniqueId, absoluteFrame: trackData.absoluteFrame, wigTracking: trackData.wigTracking, percentVisibility: 0,scrollTag:nil,parentId:nil)
+            let eventData = ViewEventData(screen: self.eventScreen, uniqueId: trackData.uniqueId, absoluteFrame: trackData.absoluteFrame, impressionTracking: trackData.impressionTracking, percentVisibility: 0,scrollTag:nil,parentId:nil)
             let event = TrackableEvent(eventType:.viewDisappeared,eventData:eventData)
             throttler.throttleEvent(event)
         }

@@ -31,6 +31,7 @@
 		F435AF471EA5DCF200C5EAA9 /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF331EA5DCF200C5EAA9 /* TrackingManager.swift */; };
 		F435AF481EA5DCF200C5EAA9 /* TagGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF351EA5DCF200C5EAA9 /* TagGenerator.swift */; };
 		F435AF491EA5DCF200C5EAA9 /* ScreenLevelTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF371EA5DCF200C5EAA9 /* ScreenLevelTracker.swift */; };
+		F435AF4F1EA62DC900C5EAA9 /* ImpressionTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435AF4E1EA62DC900C5EAA9 /* ImpressionTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		F435AF331EA5DCF200C5EAA9 /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
 		F435AF351EA5DCF200C5EAA9 /* TagGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagGenerator.swift; sourceTree = "<group>"; };
 		F435AF371EA5DCF200C5EAA9 /* ScreenLevelTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenLevelTracker.swift; sourceTree = "<group>"; };
+		F435AF4E1EA62DC900C5EAA9 /* ImpressionTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressionTracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		F435AF241EA5DCF200C5EAA9 /* TrackDataModels */ = {
 			isa = PBXGroup;
 			children = (
+				F435AF4E1EA62DC900C5EAA9 /* ImpressionTracking.swift */,
 				F435AF251EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift */,
 				F435AF261EA5DCF200C5EAA9 /* TrackingData.swift */,
 			);
@@ -428,6 +431,7 @@
 				F435AF421EA5DCF200C5EAA9 /* TrackableUICollectionView.swift in Sources */,
 				8A225A6804E9F6D8A597756C38011DD1 /* GenericTrackingFramework-dummy.m in Sources */,
 				F435AF3D1EA5DCF200C5EAA9 /* ContentTrackableEntityProtocol.swift in Sources */,
+				F435AF4F1EA62DC900C5EAA9 /* ImpressionTracking.swift in Sources */,
 				F435AF451EA5DCF200C5EAA9 /* EventConsumer.swift in Sources */,
 				F435AF381EA5DCF200C5EAA9 /* TrackEventHandler.swift in Sources */,
 				F435AF471EA5DCF200C5EAA9 /* TrackingManager.swift in Sources */,

@@ -15,6 +15,7 @@ protocol EventThrottler{
 struct ThrottlingManager : EventThrottler{
     
     var throttlingCriteria : [EventType : [Rule]]?
+    let serialQueue = DispatchQueue(label: "Flipkart.eventQueue")
     
     //takes default throttling criteria
     init(){
@@ -39,12 +40,12 @@ struct ThrottlingManager : EventThrottler{
             }
         }
         
-        DispatchQueue.global(qos: .background).async{
-            //now send the event to Tracking Manager
+        serialQueue.async {
+            //send the event to tracking manager
             TrackingManager.sharedInstance.process(event)
         }
         return true
     }
-
-
+    
+    
 }
