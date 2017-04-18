@@ -1,0 +1,6 @@
+framework module GenericTrackingFramework {
+  umbrella header "GenericTrackingFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

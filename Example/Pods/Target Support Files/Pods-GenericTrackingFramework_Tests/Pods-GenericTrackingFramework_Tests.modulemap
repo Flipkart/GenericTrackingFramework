@@ -1,0 +1,6 @@
+framework module Pods_GenericTrackingFramework_Tests {
+  umbrella header "Pods-GenericTrackingFramework_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

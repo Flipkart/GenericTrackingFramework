@@ -1,0 +1,6 @@
+use_frameworks!
+target 'GenericTrackingFramework_Tests' do
+  pod 'GenericTrackingFramework', :path => '../'
+  
+  
+end

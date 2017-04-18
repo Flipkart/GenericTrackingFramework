@@ -1,0 +1,16 @@
+PODS:
+  - GenericTrackingFramework (0.1.0)
+
+DEPENDENCIES:
+  - GenericTrackingFramework (from `../`)
+
+EXTERNAL SOURCES:
+  GenericTrackingFramework:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GenericTrackingFramework: 543a7bd594549a9b04af88be14623387d2ff4840
+
+PODFILE CHECKSUM: 53baa5e9762af5212619a9a34999df5a9e7485a4
+
+COCOAPODS: 1.2.1
