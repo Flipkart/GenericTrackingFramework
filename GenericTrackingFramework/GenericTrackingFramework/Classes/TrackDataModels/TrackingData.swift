@@ -1,5 +1,5 @@
 //
-//  TrackingData.swift
+//  TrackingData
 //  Flipkart
 //
 //  Created by Krati Jain on 14/03/17.
@@ -8,66 +8,35 @@
 
 import Foundation
 
-let unknown = "unknown"
-enum EventSourceScreen{
-    case home
-    case browse
-    case product
-    case offerZone
-    case unknown
-}
+public class TrackingData: NSObject {
 
-//TODO Keep minimum required fields here for the event consumers
-class TrackingData{
-    
-    var parentId : String?
-    
     internal var uniqueId: String
-    internal var absoluteFrame: CGRect
-    internal var affectingScrollViewTag: String?
+    var isWidget: Bool
+    var tags: [String]?
+    var impressionTracking: ImpressionTracking?
+
+    var startTime: Date
+    var maxPercentVisibility: Float
     
-    var screen : String
-    
-    var maxPercentVisibility:Float
-    var percentVisibility : Float{
-        didSet{
-            if percentVisibility > maxPercentVisibility{
+    var percentVisibility: Float {
+        
+        didSet {
+            if percentVisibility > maxPercentVisibility {
                 maxPercentVisibility = percentVisibility
             }
         }
     }
-    
-    var impressionTracking : ImpressionTracking?
-    
-    var isScrollView : Bool = false
-    var startTime : Date
-    
-    init(uniqueId:String,eventSourceTag:String?,frame:CGRect,impressionTracking:ImpressionTracking?) {
-        self.screen = unknown
-        self.percentVisibility = 0
-        self.impressionTracking = impressionTracking
+
+    init(uniqueId: String, impressionTracking: ImpressionTracking?, isWidget: Bool, tags: [String]?) {
+        
         self.uniqueId = uniqueId
-        self.affectingScrollViewTag = eventSourceTag
-        self.absoluteFrame = frame
+        self.isWidget = isWidget
+        self.tags = tags
+        self.percentVisibility = 0
         self.maxPercentVisibility = 0
         self.startTime = Date()
-    }
-    
-    init?(from event:TrackableEvent){
-        self.screen = event.eventData.screen
-        
-        if let data = event.eventData as? ViewEventData{
-            self.percentVisibility = data.percentVisibility
-            self.impressionTracking = data.impressionTracking
-            self.uniqueId = data.uniqueId
-            self.affectingScrollViewTag = data.affectingScrollTag
-            self.absoluteFrame = data.absoluteFrame
-            self.maxPercentVisibility = 0
-            self.startTime = Date()
-            self.isScrollView = data.isScrollView
-            self.parentId = data.parentId
-        }else{
-            return nil
-        }
+        self.impressionTracking = impressionTracking
+
     }
 }
+

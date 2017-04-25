@@ -8,22 +8,23 @@
 
 import Foundation
 
-class TagGenerator{
-    
+class TagGenerator {
+
     static let sharedInstance = TagGenerator()
-    
-    internal var nextAvailableTag : Int = 1323
-    
+
+    internal var nextAvailableTag: Int = 1323
+
     private init() {
     }
-    
-    func getNextAvailableTag()->Int{
-        if let mainWindow = UIApplication.shared.delegate?.window{
-            while let _ = mainWindow?.viewWithTag(nextAvailableTag){
+
+    func getNextAvailableTag() -> Int {
+        
+        if let mainWindow = UIApplication.shared.delegate?.window {
+            while let _ = mainWindow?.viewWithTag(nextAvailableTag) {
                 nextAvailableTag += 1
             }
         }
         return nextAvailableTag
     }
-    
+
 }

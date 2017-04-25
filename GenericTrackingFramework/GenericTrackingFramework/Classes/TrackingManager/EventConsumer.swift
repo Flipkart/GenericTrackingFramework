@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol EventConsumer{
-    var uniqueId : Int {get set}
-    func consumeTrackData(_ trackData : TrackingData)
+@objc public protocol EventConsumer {
+    
+    var uniqueId: Int { get set }
+    func consumeTrackData(_ trackData: TrackingData,for eventType: String)
 }

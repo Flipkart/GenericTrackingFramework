@@ -9,80 +9,113 @@
 import Foundation
 import AsyncDisplayKit
 
-open class TrackableASTableNode : ASTableNode,ContentTrackableEntityProtocol{
-    
+open class TrackableASTableNode: ASTableNode, ContentTrackableEntityProtocol {
+
     internal var trackData: FrameData?
     internal var isScrollable: Bool = true
-    private var wrapperDelegate:WrapperDelegate? = WrapperDelegate()
-    weak open var tracker: ScreenLevelTracker?{
-        didSet{
-            if isScrollable{
+    var lastTrackedOffset: CGPoint = CGPoint.zero
+
+    fileprivate lazy var wrapperDelegate: WrapperDelegate? = self.initializeWrapperDelegate()
+
+    fileprivate func initializeWrapperDelegate() -> WrapperDelegate {
+        
+        let tempWrapperDelegate = WrapperDelegate(tableNode: self)
+        return tempWrapperDelegate
+    }
+
+    weak open var tracker: ScreenLevelTracker? {
+
+        didSet {
+            if isScrollable {
                 tracker?.registerScrollView(self.view)
                 trackData = FrameData(uId: String(self.view.tag), frame: CGRect.zero, impressionTracking: nil)
             }
             wrapperDelegate?.trackerDelegate = tracker
         }
     }
-    
-    override weak open var delegate: ASTableDelegate?{
-        get{
+
+    override weak open var delegate: ASTableDelegate? {
+        
+        get {
             return super.delegate
         }
-        set{
+        set {
             wrapperDelegate?.delegate = newValue
             wrapperDelegate?.trackerDelegate = tracker
             super.delegate = wrapperDelegate
         }
     }
-    
+
     internal func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
+        
         return self.visibleNodes.flatMap { (node) in
             return node.subnodes.flatMap({ (subnode) in
                 subnode as? ContentTrackableEntityProtocol
             })
         }
-        
     }
 
     open override func didEnterVisibleState() {
+        
         trackData?.absoluteFrame = (self.convert(self.bounds, to: nil))
         self.tracker?.trackViewAppear(trackData: trackData)
     }
 }
 
-fileprivate class WrapperDelegate: NSObject,ASTableDelegate{
-    weak var trackerDelegate : ScreenLevelTracker?
-    weak var delegate : ASTableDelegate?
-    
-    override init() {
+fileprivate class WrapperDelegate: NSObject, ASTableDelegate {
+
+    weak var trackerDelegate: ScreenLevelTracker?
+    weak var delegate: ASTableDelegate?
+    weak var tableNode: TrackableASTableNode?
+
+    init(tableNode: TrackableASTableNode) {
+        
+        self.tableNode = tableNode
         super.init()
     }
-    public func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode){
-        if let cell = node as? ContentTrackableEntityProtocol{
+
+    public func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
+
+        if let cell = node as? ContentTrackableEntityProtocol {
             cell.trackData?.absoluteFrame = node.view.convert(node.view.bounds, to: nil)
-            let scrollTag =  String(tableNode.view.tag)
-            self.trackerDelegate?.trackViewHierarchyFor(view: cell, event: .viewWillDisplay,scrollTag:scrollTag,parentId:scrollTag)
+            let scrollTag = String(tableNode.view.tag)
+            self.trackerDelegate?.trackViewHierarchyFor(view: cell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
         }
-        if self.delegate?.responds(to:#selector(ASTableDelegate.tableNode(_:willDisplayRowWith:))) ?? false{
+
+        if self.delegate?.responds(to: #selector(ASTableDelegate.tableNode(_:willDisplayRowWith:))) ?? false {
             self.delegate?.tableNode!(tableNode, willDisplayRowWith: node)
         }
     }
-    
-    public func tableNode(_ tableNode: ASTableNode, didEndDisplayingRowWith node: ASCellNode){
-        if let cell = node as? ContentTrackableEntityProtocol{
-            let scrollTag =  String(tableNode.view.tag)
-            self.trackerDelegate?.trackViewHierarchyFor(view: cell, event: .viewEnded,scrollTag:scrollTag,parentId:scrollTag)
+
+    public func tableNode(_ tableNode: ASTableNode, didEndDisplayingRowWith node: ASCellNode) {
+
+        if let cell = node as? ContentTrackableEntityProtocol {
+            let scrollTag = String(tableNode.view.tag)
+            self.trackerDelegate?.trackViewHierarchyFor(view: cell, event: EventNames.viewEnded, scrollTag: scrollTag, parentId: scrollTag)
         }
-        if self.delegate?.responds(to:#selector(ASTableDelegate.tableNode(_:didEndDisplayingRowWith:))) ?? false{
+
+        if self.delegate?.responds(to: #selector(ASTableDelegate.tableNode(_:didEndDisplayingRowWith:))) ?? false {
             self.delegate?.tableNode!(tableNode, didEndDisplayingRowWith: node)
         }
     }
-    
+
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return self.delegate?.tableView?(tableView, viewForHeaderInSection: section)
+    }
+
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return self.delegate?.tableView?(tableView, heightForHeaderInSection: section) ?? 0
+    }
+
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.trackerDelegate?.trackScrollEvent(scrollView)
-        if let _ = self.delegate?.responds(to: #selector(UIScrollViewDelegate.scrollViewDidScroll(_:))){
-            self.delegate?.scrollViewDidScroll!(scrollView)
+        
+        let newContentOffset: CGPoint = scrollView.contentOffset
+
+        if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: (tableNode?.lastTrackedOffset ?? CGPoint.zero)) ?? false {
+            self.tableNode?.lastTrackedOffset = newContentOffset
         }
+        self.delegate?.scrollViewDidScroll?(scrollView)
     }
 }
-

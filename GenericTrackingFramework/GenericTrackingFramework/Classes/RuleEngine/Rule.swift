@@ -8,21 +8,33 @@
 
 import Foundation
 
-enum EvaluationOperation{
+@objc public enum EvaluationOperation: Int {
     case equal
     case greater
     case lesser
+    case unequal
 }
 
-struct Rule{
-    
-    var propertyToEvaluate : String
-    var operation : EvaluationOperation
-    var requiredValue : Float
-    
-    init(property:String,evalOp:EvaluationOperation,value:Float){
+public class Rule: NSObject {
+
+    var propertyToEvaluate: String
+    var operation: EvaluationOperation
+    var requiredValue: Any
+
+    init(property: String, evalOp: EvaluationOperation, value: Any) {
         self.propertyToEvaluate = property
         self.operation = evalOp
         self.requiredValue = value
+    }
+}
+
+public class EventWiseRules: NSObject {
+
+    var eventType: String
+    var rules: [Rule]
+
+    init(eventType: String, rules: [Rule]) {
+        self.eventType = eventType
+        self.rules = rules
     }
 }
