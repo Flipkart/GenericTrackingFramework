@@ -1,6 +1,11 @@
 use_frameworks!
-target 'GenericTrackingFramework_Tests' do
+
+target 'GenericTrackingFramework_Example' do
   pod 'GenericTrackingFramework', :path => '../'
-  
-  
+
+  target 'GenericTrackingFramework_Tests' do
+    inherit! :search_paths
+
+    
+  end
 end

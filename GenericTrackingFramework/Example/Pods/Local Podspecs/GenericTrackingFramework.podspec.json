@@ -18,5 +18,11 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "GenericTrackingFramework/Classes/**/*"
+  "source_files": "GenericTrackingFramework/Classes/**/*",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "AsyncDisplayKit": [
+      "~> 2.2"
+    ]
+  }
 }

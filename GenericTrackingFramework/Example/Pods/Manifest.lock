@@ -1,5 +1,27 @@
 PODS:
-  - GenericTrackingFramework (0.1.0)
+  - AsyncDisplayKit (2.2.1):
+    - AsyncDisplayKit/PINRemoteImage (= 2.2.1)
+  - AsyncDisplayKit/Core (2.2.1)
+  - AsyncDisplayKit/PINRemoteImage (2.2.1):
+    - AsyncDisplayKit/Core
+    - PINRemoteImage/iOS (= 3.0.0-beta.8)
+    - PINRemoteImage/PINCache
+  - GenericTrackingFramework (0.1.0):
+    - AsyncDisplayKit (~> 2.2)
+  - PINCache (3.0.1-beta.4):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
+    - PINCache/Core (= 3.0.1-beta.4)
+  - PINCache/Arc-exception-safe (3.0.1-beta.4):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.4):
+    - PINOperation (= 1.0.3)
+  - PINOperation (1.0.3)
+  - PINRemoteImage/Core (3.0.0-beta.8)
+  - PINRemoteImage/iOS (3.0.0-beta.8):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.8):
+    - PINCache (= 3.0.1-beta.4)
+    - PINRemoteImage/Core
 
 DEPENDENCIES:
   - GenericTrackingFramework (from `../`)
@@ -9,8 +31,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GenericTrackingFramework: 543a7bd594549a9b04af88be14623387d2ff4840
+  AsyncDisplayKit: 2234dd8d8770a5ed72936b3f8394bd5a807765f6
+  GenericTrackingFramework: 01be8bb174c7f46b0d9a872d8b65be0fe02a63b5
+  PINCache: a89c8f609232afac77128557bd12c861844423d7
+  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
+  PINRemoteImage: c4f9f16932840c597f32e69dd288e10e111a1929
 
-PODFILE CHECKSUM: 53baa5e9762af5212619a9a34999df5a9e7485a4
+PODFILE CHECKSUM: fe439d29e248e465aeaa0ff5cfee24108269fa97
 
 COCOAPODS: 1.2.1

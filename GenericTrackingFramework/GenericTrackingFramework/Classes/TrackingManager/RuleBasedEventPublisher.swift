@@ -8,34 +8,19 @@
 
 import Foundation
 
+//protocol to be followed to act as a publisher/distributor of events among rule based consumer
 protocol RuleBasedEventPublisher {
 
+    //maintain the uniqueId map of each consumer
     var ruleConsumerMap: [Int: RuleBasedConsumer] { get set }
 
+    //register the consumer with its rules for events that its interested in
     func register(consumer: EventConsumer, rules: [EventWiseRules]?) -> Bool
 
+    //deregister the consumer so it wont receive any events in future
     func deregister(consumer: EventConsumer) -> Bool
 
+    //update the rules for this consumer
     func update(rules: [EventWiseRules]?, consumer: EventConsumer) -> Bool
 }
 
-protocol RuleBasedConsumer {
-    
-    var uniqueId: Int { get set }
-    var consumer: EventConsumer { get set }
-    var rules: [EventWiseRules]? { get set }
-}
-
-class RuleBasedConsumerModel: NSObject, RuleBasedConsumer {
-
-    internal var rules: [EventWiseRules]?
-    internal var consumer: EventConsumer
-    internal var uniqueId: Int
-
-    init(uniqueId: Int, consumer: EventConsumer, rules: [EventWiseRules]?) {
-        
-        self.uniqueId = uniqueId;
-        self.consumer = consumer
-        self.rules = rules
-    }
-}

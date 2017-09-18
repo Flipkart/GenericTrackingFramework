@@ -9,8 +9,6 @@
 #endif
 #endif
 #endif
-
-
 FOUNDATION_EXPORT double GenericTrackingFrameworkVersionNumber;
 FOUNDATION_EXPORT const unsigned char GenericTrackingFrameworkVersionString[];
 

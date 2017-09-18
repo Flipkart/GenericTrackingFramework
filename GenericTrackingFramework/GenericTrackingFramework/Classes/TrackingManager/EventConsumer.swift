@@ -8,8 +8,10 @@
 
 import Foundation
 
+//each event consumer should have a unique id and should know how to consume the TrackData
 @objc public protocol EventConsumer {
-    
+
     var uniqueId: Int { get set }
-    func consumeTrackData(_ trackData: TrackingData,for eventType: String)
+    func consumeTrackData(_ trackData: TrackingData, for eventType: String)
 }
+

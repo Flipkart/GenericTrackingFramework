@@ -8,22 +8,25 @@
 
 import UIKit
 
+//Trackable swift Table View
 open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
 
     internal var trackData: FrameData?
     internal var isScrollable: Bool = true
+    
+    //last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
 
     fileprivate lazy var wrapperDelegate: TrackableTableViewWrapperDelegate? = self.initializeWrapperDelegate()
 
     fileprivate func initializeWrapperDelegate() -> TrackableTableViewWrapperDelegate {
-        
+
         let tempWrapperDelegate = TrackableTableViewWrapperDelegate(tableView: self)
         return tempWrapperDelegate
     }
 
     weak open var tracker: ScreenLevelTracker? {
-        
+
         didSet {
             if isScrollable {
                 tracker?.registerScrollView(self)
@@ -34,7 +37,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     }
 
     override weak open var delegate: UITableViewDelegate? {
-        
+
         get {
             return super.delegate
         }
@@ -46,7 +49,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     }
 
     internal func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
-        
+
         return self.visibleCells.flatMap { (node) in
             return node.subviews.flatMap({ (subnode) in
                 subnode as? ContentTrackableEntityProtocol
@@ -55,8 +58,8 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     }
 
     open override func didMoveToWindow() {
-        
-        if self.window != nil{
+
+        if self.window != nil {
             trackData?.absoluteFrame = (self.convert(self.bounds, to: nil))
             self.tracker?.trackViewAppear(trackData: trackData)
         }
@@ -64,19 +67,19 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
 }
 
 public class TrackableTableViewWrapperDelegate: NSObject, UITableViewDelegate {
-    
+
     weak var trackerDelegate: ScreenLevelTracker?
     weak var delegate: UITableViewDelegate?
     weak var tableView: UITableView?
 
     init(tableView: TrackableUITableView) {
-        
+
         self.tableView = tableView
         super.init()
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+
         if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
             let scrollTag = String(tableView.tag)
             self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
@@ -88,7 +91,7 @@ public class TrackableTableViewWrapperDelegate: NSObject, UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+
         if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
             let scrollTag = String(tableView.tag)
             self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewEnded, scrollTag: scrollTag, parentId: scrollTag)

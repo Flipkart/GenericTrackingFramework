@@ -8,22 +8,25 @@
 
 import UIKit
 
+//Trackable swift collection view
 open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityProtocol {
 
     internal var trackData: FrameData?
     internal var isScrollable: Bool = true
+    
+    //last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
 
     fileprivate lazy var wrapperDelegate: TrackableCollectionViewWrapperDelegate? = self.initializeWrapperDelegate()
 
     fileprivate func initializeWrapperDelegate() -> TrackableCollectionViewWrapperDelegate {
-        
+
         let tempWrapperDelegate = TrackableCollectionViewWrapperDelegate(collectionView: self)
         return tempWrapperDelegate
     }
 
     weak open var tracker: ScreenLevelTracker? {
-        
+
         didSet {
             if isScrollable {
                 tracker?.registerScrollView(self)
@@ -34,7 +37,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
     }
 
     override weak open var delegate: UICollectionViewDelegate? {
-        
+
         get {
             return super.delegate
         }
@@ -46,7 +49,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
     }
 
     internal func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
-        
+
         return self.visibleCells.flatMap { (node) in
             return node.subviews.flatMap({ (subnode) in
                 subnode as? ContentTrackableEntityProtocol
@@ -55,8 +58,8 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
     }
 
     open override func didMoveToWindow() {
-        
-        if self.window != nil{
+
+        if self.window != nil {
             trackData?.absoluteFrame = (self.convert(self.bounds, to: nil))
             self.tracker?.trackViewAppear(trackData: trackData)
         }
@@ -64,19 +67,19 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
 }
 
 public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
+
     weak var trackerDelegate: ScreenLevelTracker?
     weak var delegate: UICollectionViewDelegate?
     weak var collectionView: UICollectionView?
 
     init(collectionView: UICollectionView) {
-        
+
         self.collectionView = collectionView
         super.init()
     }
 
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+
         if let trackableCell = cell as? ContentTrackableEntityProtocol {
             let scrollTag = String(collectionView.tag)
             self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
@@ -88,7 +91,7 @@ public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewD
     }
 
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+
         if let trackableCell = cell as? ContentTrackableEntityProtocol {
             let scrollTag = String(collectionView.tag)
             self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewEnded, scrollTag: scrollTag, parentId: scrollTag)
@@ -100,7 +103,7 @@ public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewD
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+
         let newContentOffset: CGPoint = scrollView.contentOffset
 
         if let trackableObjcCollection = collectionView as? TrackableObjcUICollectionView {
@@ -116,16 +119,16 @@ public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewD
         }
 
         self.delegate?.scrollViewDidScroll?(scrollView)
-    }
+    }/*
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+
         self.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
     }
-    
+
     //CollectionViewFlowDelegate related methods
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         if let flowDelegate = self.delegate as? UICollectionViewDelegateFlowLayout {
             return flowDelegate.collectionView?(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath) ?? CGSize.zero
         }
@@ -133,7 +136,7 @@ public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewD
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
+
         if let flowDelegate = self.delegate as? UICollectionViewDelegateFlowLayout {
             return flowDelegate.collectionView?(collectionView, layout: collectionViewLayout, insetForSectionAt: section) ?? UIEdgeInsets.zero
         }
@@ -141,11 +144,24 @@ public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewD
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        
+
         if let flowDelegate = self.delegate as? UICollectionViewDelegateFlowLayout {
             return flowDelegate.collectionView?(collectionView, layout: collectionViewLayout, referenceSizeForHeaderInSection: section) ?? CGSize.zero
         }
         return CGSize.zero
     }
-
+    */
+    public override func forwardingTarget(for aSelector: Selector!) -> Any? {
+        guard let delegate = self.delegate else {
+            return nil
+        }
+        if (delegate.responds(to: aSelector)) {
+            return delegate
+        }
+        return nil;
+    }
+    
+    public override func responds(to aSelector: Selector!) -> Bool {
+        return super.responds(to: aSelector) || delegate?.responds(to: aSelector) == true
+    }
 }

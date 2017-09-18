@@ -17,10 +17,11 @@ class FrameData: NSObject {
     var absoluteFrame: CGRect
     var impressionTracking: ImpressionTracking?
     var isWidget: Bool
-    var tags: [String]?
+    var tags: Set<String>?
+    var additionalInfo : NSDictionary? = nil
+    
+    init(uId: String, frame: CGRect, impressionTracking: ImpressionTracking?, isWidget: Bool = false, tags: Set<String>? = nil) {
 
-    init(uId: String, frame: CGRect, impressionTracking: ImpressionTracking?, isWidget: Bool = false, tags: [String]? = nil) {
-        
         self.uniqueId = uId
         self.absoluteFrame = frame
         self.impressionTracking = impressionTracking
@@ -29,13 +30,19 @@ class FrameData: NSObject {
     }
 }
 
+//Any view that wants to be tracked should implement this protocol
 @objc protocol ContentTrackableEntityProtocol {
 
+    //tracker for calling tracking related methods
     var tracker: ScreenLevelTracker? { get }
+    
+    //every view will have its own trackData which will later be consumed after event processing
     var trackData: FrameData? { get set }
+    
+    //flag to denote whether this view is scrollable and trackable, so that its data source/delegate callbacks can be tracked
     var isScrollable: Bool { get set }
 
-    //the list of content that need to be tracked
+    //the list of child views that need to be tracked and follow ContentTrackableEntityProtocol
     func getTrackableChildren() -> [ContentTrackableEntityProtocol]?
 
 }

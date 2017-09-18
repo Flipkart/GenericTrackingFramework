@@ -8,14 +8,16 @@
 
 import Foundation
 
+//Object for holding tracking impressions and relevant parameters. This is independent of app and can be created from app specific tracking objects using ImpressionTrackingPopulator
 public class ImpressionTracking: NSObject {
 
     var navigationContextId: String?
     var findingMethod: String?
 
-    var impressionId: String?
-    var tabImpressionId: String?
-    var parentImpressionId: String?
+    var impression: CompositeImpression?
+    var tabImpression: CompositeImpression?
+    var parentImpression: CompositeImpression?
+    
     var widgetKey: String?
 
     var contentType: String?
@@ -28,9 +30,9 @@ public class ImpressionTracking: NSObject {
     var viewType: String?
     var widgetType: String?
 
-    init(navigationContextId: String?, impressionId: String?) {
-        
+    init(navigationContextId: String?, impression: CompositeImpression?) {
+
         self.navigationContextId = navigationContextId
-        self.impressionId = impressionId
+        self.impression = impression
     }
 }

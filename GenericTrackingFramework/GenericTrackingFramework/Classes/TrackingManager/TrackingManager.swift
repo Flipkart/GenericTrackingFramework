@@ -8,27 +8,38 @@
 
 import Foundation
 
+//protocol for processing any event which needs to be tracked and processed
 protocol EventProcessor {
-    
+
+    //add handler for specified event
     func add(event: TrackableEvent, handler: TrackEventHandler)
 
+    //process the event
     func process(_ event: TrackableEvent)
 }
 
+
+//The singleton Manager for Tracking operations
+//Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
 public class TrackingManager: NSObject {
 
     static let sharedInstance = TrackingManager()
 
+    //counter to assign unique Id to each consumer at time of registering
     fileprivate var counter: Int = 1
 
+    //map of active event consumers against their unique Ids
     internal var ruleConsumerMap: [Int: RuleBasedConsumer]
+    
+    //map of active event handlers against each event Name
     fileprivate var eventHandlerMap: [String: TrackEventHandler]
+    
+    //the dataprocessor which holds the track data collection hierarchy for each tree
     fileprivate var dataProcessor: TrackingDataProcessor
 
-
-    //Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
+    //Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
     override init() {
-        
+
         ruleConsumerMap = [Int: RuleBasedConsumer]()
         dataProcessor = TrackingDataProcessor()
         eventHandlerMap = [String: TrackEventHandler]()
@@ -36,7 +47,6 @@ public class TrackingManager: NSObject {
 
         //add the initial events and event handlers
         self.add(event: TrackableEvent(EventNames.viewWillDisplay), handler: ViewWillDisplayEventHandler(trackingManager: self))
-        self.add(event: TrackableEvent(EventNames.viewWillEnd), handler: ViewDisappearedEventHandler(trackingManager: self))
         self.add(event: TrackableEvent(EventNames.viewStarted), handler: ViewStartedEventHandler(trackingManager: self))
         self.add(event: TrackableEvent(EventNames.viewEnded), handler: ViewEndedEventHandler(trackingManager: self))
         self.add(event: TrackableEvent(EventNames.visibilityChange), handler: VisibilityChangeEventHandler(trackingManager: self))
@@ -47,6 +57,7 @@ public class TrackingManager: NSObject {
 
 }
 
+//extending as event processor - handle each event and process it using the corresponding handler from the map
 extension TrackingManager: EventProcessor {
 
     public func add(event: TrackableEvent, handler: TrackEventHandler) {
@@ -58,21 +69,25 @@ extension TrackingManager: EventProcessor {
     }
 }
 
+//extending as RuleBasedEventPublisher - manage consumers and their rules and distribute data after applying rules specified by each consumer
 extension TrackingManager: RuleBasedEventPublisher {
 
     public func register(consumer: EventConsumer, rules: [EventWiseRules]?) -> Bool {
-        
+
+        //assign uniqueId to each consumer
         consumer.uniqueId = counter
         if ruleConsumerMap[counter] != nil {
             return false
         }
+        
+        //store this consumer in the ruleConsumerMap for distributing events later
         ruleConsumerMap[counter] = RuleBasedConsumerModel(uniqueId: counter, consumer: consumer, rules: rules)
         counter += 1
         return true
     }
 
     public func deregister(consumer: EventConsumer) -> Bool {
-        
+
         let uId = consumer.uniqueId
         if ruleConsumerMap[uId] != nil {
             ruleConsumerMap.removeValue(forKey: uId)
@@ -84,6 +99,8 @@ extension TrackingManager: RuleBasedEventPublisher {
     public func update(rules: [EventWiseRules]?, consumer: EventConsumer) -> Bool {
 
         let id: Int = consumer.uniqueId
+        
+        //update the rules if this consumer exists in the map
         if var ruleBaseConsumer = ruleConsumerMap[id] {
             ruleBaseConsumer.rules = rules
             ruleConsumerMap[id] = ruleBaseConsumer
@@ -96,22 +113,25 @@ extension TrackingManager: RuleBasedEventPublisher {
     public func distributeData(_ trackData: TrackingData?, for event: TrackableEvent) {
 
         if let data = trackData {
-            print("Sending eventType: \(event.eventType) for ContentId: \(data.uniqueId) startTime: \(data.startTime) MaxVisiblity: \(data.maxPercentVisibility)")
+//            print("Sending eventType: \(event.eventType) for ContentId: \(data.uniqueId) startTime: \(data.startTime) MaxVisiblity: \(data.maxPercentVisibility)")
 
             //evaluate rules and pass the event to the consumers
             let ruleEngine = RuleEngine()
 
+            //for each consumer, distribute data only if rules allow
             for (_, ruleBasedConsumer) in ruleConsumerMap {
                 var shouldConsumeData = true
 
+                //evaluate all rules one by one
                 if let rules = ruleBasedConsumer.rules {
                     for eventWiseRule in rules {
-                        if eventWiseRule.eventType == event.eventType, let eventData = event.eventData {
-                            shouldConsumeData = ruleEngine.evaluateRules(eventWiseRule.rules, for: eventData)
+                        if eventWiseRule.eventType == event.eventType{
+                            shouldConsumeData = ruleEngine.evaluateRules(eventWiseRule.rules, for: event, data: data)
                         }
                     }
                 }
 
+                //finally distribute data to the consumer
                 if shouldConsumeData {
                     ruleBasedConsumer.consumer.consumeTrackData(data, for: event.eventType)
                 }
