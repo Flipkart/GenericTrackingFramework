@@ -1,42 +1,17 @@
-#
-# Be sure to run `pod lib lint GenericTrackingFramework.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'GenericTrackingFramework'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of GenericTrackingFramework.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
+  s.version          = '1.0.0'
+  s.summary          = 'A swift view tracking framework'
+  s.description      = 'View Tracking Framework written in Swift. Enables developers to : 1.Track % visibility of each view and its content 2.Track duration of on screen time 3.Create recommendations out of the accumulated data 4.Enable ads monetisation from the data'
   s.homepage         = 'https://github.com/kratijain-flipkart/GenericTrackingFramework'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'kratijain-flipkart' => 'krati.jain@flipkart.com' }
-  s.source           = { :git => 'https://github.com/kratijain-flipkart/GenericTrackingFramework.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.source           = { :git => 'https://github.com/Flipkart/GenericTrackingFramework.git', :tag => '1.0.0' }
+  s.social_media_url = 'https://twitter.com/@kratijain'
   s.ios.deployment_target = '8.0'
-
   s.source_files = 'GenericTrackingFramework/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'GenericTrackingFramework' => ['GenericTrackingFramework/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit'
    s.dependency 'AsyncDisplayKit', '~> 2.2'
 end
