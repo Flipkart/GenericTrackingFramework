@@ -1,6 +1,0 @@
-framework module Pods_GenericTrackingFramework_Example {
-  umbrella header "Pods-GenericTrackingFramework_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

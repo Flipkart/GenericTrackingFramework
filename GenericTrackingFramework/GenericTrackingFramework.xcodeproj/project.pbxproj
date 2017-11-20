@@ -1,0 +1,653 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4B6C3C81FC2A257001CBCB2 /* GenericTrackingFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B6C3BE1FC2A257001CBCB2 /* GenericTrackingFramework.framework */; };
+		F4B6C3CD1FC2A257001CBCB2 /* GenericTrackingFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3CC1FC2A257001CBCB2 /* GenericTrackingFrameworkTests.swift */; };
+		F4B6C4031FC2A280001CBCB2 /* ScreenLevelTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3D91FC2A27F001CBCB2 /* ScreenLevelTracker.swift */; };
+		F4B6C4041FC2A280001CBCB2 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3DB1FC2A27F001CBCB2 /* Rule.swift */; };
+		F4B6C4051FC2A280001CBCB2 /* RuleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3DC1FC2A27F001CBCB2 /* RuleEngine.swift */; };
+		F4B6C4061FC2A280001CBCB2 /* NodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3DE1FC2A27F001CBCB2 /* NodeInfo.swift */; };
+		F4B6C4071FC2A280001CBCB2 /* TrackingDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3DF1FC2A27F001CBCB2 /* TrackingDataCollection.swift */; };
+		F4B6C4091FC2A280001CBCB2 /* TagGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3E21FC2A27F001CBCB2 /* TagGenerator.swift */; };
+		F4B6C40A1FC2A280001CBCB2 /* CompositeImpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3E41FC2A27F001CBCB2 /* CompositeImpression.swift */; };
+		F4B6C40B1FC2A280001CBCB2 /* ContentTrackableEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3E51FC2A27F001CBCB2 /* ContentTrackableEntityProtocol.swift */; };
+		F4B6C40C1FC2A280001CBCB2 /* ImpressionTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3E61FC2A27F001CBCB2 /* ImpressionTracking.swift */; };
+		F4B6C40D1FC2A280001CBCB2 /* TrackingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3E71FC2A27F001CBCB2 /* TrackingData.swift */; };
+		F4B6C40E1FC2A280001CBCB2 /* TrackEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3E91FC2A27F001CBCB2 /* TrackEventHandler.swift */; };
+		F4B6C40F1FC2A280001CBCB2 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3EB1FC2A280001CBCB2 /* EventData.swift */; };
+		F4B6C4101FC2A280001CBCB2 /* ThrottlingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3EC1FC2A280001CBCB2 /* ThrottlingManager.swift */; };
+		F4B6C4111FC2A280001CBCB2 /* TrackableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3ED1FC2A280001CBCB2 /* TrackableEvent.swift */; };
+		F4B6C4131FC2A280001CBCB2 /* TrackableObjCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F4B6C3F01FC2A280001CBCB2 /* TrackableObjCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4B6C4141FC2A280001CBCB2 /* TrackableObjCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3F11FC2A280001CBCB2 /* TrackableObjCollectionViewCell.m */; };
+		F4B6C4151FC2A280001CBCB2 /* TrackableObjcScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F4B6C3F21FC2A280001CBCB2 /* TrackableObjcScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4B6C4161FC2A280001CBCB2 /* TrackableObjcScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3F31FC2A280001CBCB2 /* TrackableObjcScrollView.m */; };
+		F4B6C4171FC2A280001CBCB2 /* TrackableObjcUICollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = F4B6C3F41FC2A280001CBCB2 /* TrackableObjcUICollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4B6C4181FC2A280001CBCB2 /* TrackableObjcUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3F51FC2A280001CBCB2 /* TrackableObjcUICollectionView.m */; };
+		F4B6C4191FC2A280001CBCB2 /* TrackableObjcUITableView.h in Headers */ = {isa = PBXBuildFile; fileRef = F4B6C3F61FC2A280001CBCB2 /* TrackableObjcUITableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4B6C41A1FC2A280001CBCB2 /* TrackableObjcUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3F71FC2A280001CBCB2 /* TrackableObjcUITableView.m */; };
+		F4B6C41D1FC2A280001CBCB2 /* TrackableUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3FA1FC2A280001CBCB2 /* TrackableUICollectionView.swift */; };
+		F4B6C41E1FC2A280001CBCB2 /* TrackableUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3FB1FC2A280001CBCB2 /* TrackableUITableView.swift */; };
+		F4B6C41F1FC2A280001CBCB2 /* TrackingDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3FD1FC2A280001CBCB2 /* TrackingDataProcessor.swift */; };
+		F4B6C4201FC2A280001CBCB2 /* EventConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C3FF1FC2A280001CBCB2 /* EventConsumer.swift */; };
+		F4B6C4211FC2A280001CBCB2 /* RuleBasedConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4001FC2A280001CBCB2 /* RuleBasedConsumer.swift */; };
+		F4B6C4221FC2A280001CBCB2 /* RuleBasedEventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4011FC2A280001CBCB2 /* RuleBasedEventPublisher.swift */; };
+		F4B6C4231FC2A280001CBCB2 /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4021FC2A280001CBCB2 /* TrackingManager.swift */; };
+		F4B6C4281FC2DD62001CBCB2 /* TrackableASTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4241FC2DD61001CBCB2 /* TrackableASTableNode.swift */; };
+		F4B6C4291FC2DD62001CBCB2 /* TrackableASControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4251FC2DD61001CBCB2 /* TrackableASControlNode.swift */; };
+		F4B6C42A1FC2DD62001CBCB2 /* TrackableASCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4261FC2DD62001CBCB2 /* TrackableASCollectionNode.swift */; };
+		F4B6C42B1FC2DD62001CBCB2 /* TrackableASDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6C4271FC2DD62001CBCB2 /* TrackableASDisplayNode.swift */; };
+		F4B6C42E1FC2EB75001CBCB2 /* GenericTrackingFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F4B6C42D1FC2EB75001CBCB2 /* GenericTrackingFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F4B6C3C91FC2A257001CBCB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4B6C3B51FC2A257001CBCB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4B6C3BD1FC2A257001CBCB2;
+			remoteInfo = GenericTrackingFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F4B6C3BE1FC2A257001CBCB2 /* GenericTrackingFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenericTrackingFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4B6C3C21FC2A257001CBCB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4B6C3C71FC2A257001CBCB2 /* GenericTrackingFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenericTrackingFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4B6C3CC1FC2A257001CBCB2 /* GenericTrackingFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTrackingFrameworkTests.swift; sourceTree = "<group>"; };
+		F4B6C3CE1FC2A257001CBCB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4B6C3D91FC2A27F001CBCB2 /* ScreenLevelTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenLevelTracker.swift; sourceTree = "<group>"; };
+		F4B6C3DB1FC2A27F001CBCB2 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		F4B6C3DC1FC2A27F001CBCB2 /* RuleEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEngine.swift; sourceTree = "<group>"; };
+		F4B6C3DE1FC2A27F001CBCB2 /* NodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeInfo.swift; sourceTree = "<group>"; };
+		F4B6C3DF1FC2A27F001CBCB2 /* TrackingDataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataCollection.swift; sourceTree = "<group>"; };
+		F4B6C3E21FC2A27F001CBCB2 /* TagGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagGenerator.swift; sourceTree = "<group>"; };
+		F4B6C3E41FC2A27F001CBCB2 /* CompositeImpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeImpression.swift; sourceTree = "<group>"; };
+		F4B6C3E51FC2A27F001CBCB2 /* ContentTrackableEntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTrackableEntityProtocol.swift; sourceTree = "<group>"; };
+		F4B6C3E61FC2A27F001CBCB2 /* ImpressionTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressionTracking.swift; sourceTree = "<group>"; };
+		F4B6C3E71FC2A27F001CBCB2 /* TrackingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingData.swift; sourceTree = "<group>"; };
+		F4B6C3E91FC2A27F001CBCB2 /* TrackEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackEventHandler.swift; sourceTree = "<group>"; };
+		F4B6C3EB1FC2A280001CBCB2 /* EventData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
+		F4B6C3EC1FC2A280001CBCB2 /* ThrottlingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrottlingManager.swift; sourceTree = "<group>"; };
+		F4B6C3ED1FC2A280001CBCB2 /* TrackableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableEvent.swift; sourceTree = "<group>"; };
+		F4B6C3F01FC2A280001CBCB2 /* TrackableObjCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackableObjCollectionViewCell.h; sourceTree = "<group>"; };
+		F4B6C3F11FC2A280001CBCB2 /* TrackableObjCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackableObjCollectionViewCell.m; sourceTree = "<group>"; };
+		F4B6C3F21FC2A280001CBCB2 /* TrackableObjcScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackableObjcScrollView.h; sourceTree = "<group>"; };
+		F4B6C3F31FC2A280001CBCB2 /* TrackableObjcScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackableObjcScrollView.m; sourceTree = "<group>"; };
+		F4B6C3F41FC2A280001CBCB2 /* TrackableObjcUICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackableObjcUICollectionView.h; sourceTree = "<group>"; };
+		F4B6C3F51FC2A280001CBCB2 /* TrackableObjcUICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackableObjcUICollectionView.m; sourceTree = "<group>"; };
+		F4B6C3F61FC2A280001CBCB2 /* TrackableObjcUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackableObjcUITableView.h; sourceTree = "<group>"; };
+		F4B6C3F71FC2A280001CBCB2 /* TrackableObjcUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackableObjcUITableView.m; sourceTree = "<group>"; };
+		F4B6C3FA1FC2A280001CBCB2 /* TrackableUICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableUICollectionView.swift; sourceTree = "<group>"; };
+		F4B6C3FB1FC2A280001CBCB2 /* TrackableUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableUITableView.swift; sourceTree = "<group>"; };
+		F4B6C3FD1FC2A280001CBCB2 /* TrackingDataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataProcessor.swift; sourceTree = "<group>"; };
+		F4B6C3FF1FC2A280001CBCB2 /* EventConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConsumer.swift; sourceTree = "<group>"; };
+		F4B6C4001FC2A280001CBCB2 /* RuleBasedConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleBasedConsumer.swift; sourceTree = "<group>"; };
+		F4B6C4011FC2A280001CBCB2 /* RuleBasedEventPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleBasedEventPublisher.swift; sourceTree = "<group>"; };
+		F4B6C4021FC2A280001CBCB2 /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
+		F4B6C4241FC2DD61001CBCB2 /* TrackableASTableNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASTableNode.swift; sourceTree = "<group>"; };
+		F4B6C4251FC2DD61001CBCB2 /* TrackableASControlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASControlNode.swift; sourceTree = "<group>"; };
+		F4B6C4261FC2DD62001CBCB2 /* TrackableASCollectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASCollectionNode.swift; sourceTree = "<group>"; };
+		F4B6C4271FC2DD62001CBCB2 /* TrackableASDisplayNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableASDisplayNode.swift; sourceTree = "<group>"; };
+		F4B6C42D1FC2EB75001CBCB2 /* GenericTrackingFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericTrackingFramework.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4B6C3BA1FC2A257001CBCB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B6C3C41FC2A257001CBCB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B6C3C81FC2A257001CBCB2 /* GenericTrackingFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4B6C3B41FC2A257001CBCB2 = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3C01FC2A257001CBCB2 /* GenericTrackingFramework */,
+				F4B6C3CB1FC2A257001CBCB2 /* GenericTrackingFrameworkTests */,
+				F4B6C3BF1FC2A257001CBCB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4B6C3BF1FC2A257001CBCB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3BE1FC2A257001CBCB2 /* GenericTrackingFramework.framework */,
+				F4B6C3C71FC2A257001CBCB2 /* GenericTrackingFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4B6C3C01FC2A257001CBCB2 /* GenericTrackingFramework */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C42D1FC2EB75001CBCB2 /* GenericTrackingFramework.h */,
+				F4B6C3E81FC2A27F001CBCB2 /* EventHandlers */,
+				F4B6C3DA1FC2A27F001CBCB2 /* RuleEngine */,
+				F4B6C3D81FC2A27F001CBCB2 /* ScreenLevelTracker */,
+				F4B6C3EA1FC2A280001CBCB2 /* ThrottlingManager */,
+				F4B6C3EE1FC2A280001CBCB2 /* TrackableContainerViews */,
+				F4B6C3E31FC2A27F001CBCB2 /* TrackDataModels */,
+				F4B6C3DD1FC2A27F001CBCB2 /* TrackingDataCollection */,
+				F4B6C3FC1FC2A280001CBCB2 /* TrackingDataProcessor */,
+				F4B6C3FE1FC2A280001CBCB2 /* TrackingManager */,
+				F4B6C3E01FC2A27F001CBCB2 /* Utils */,
+				F4B6C3C21FC2A257001CBCB2 /* Info.plist */,
+			);
+			path = GenericTrackingFramework;
+			sourceTree = "<group>";
+		};
+		F4B6C3CB1FC2A257001CBCB2 /* GenericTrackingFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3CC1FC2A257001CBCB2 /* GenericTrackingFrameworkTests.swift */,
+				F4B6C3CE1FC2A257001CBCB2 /* Info.plist */,
+			);
+			path = GenericTrackingFrameworkTests;
+			sourceTree = "<group>";
+		};
+		F4B6C3D81FC2A27F001CBCB2 /* ScreenLevelTracker */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3D91FC2A27F001CBCB2 /* ScreenLevelTracker.swift */,
+			);
+			path = ScreenLevelTracker;
+			sourceTree = "<group>";
+		};
+		F4B6C3DA1FC2A27F001CBCB2 /* RuleEngine */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3DB1FC2A27F001CBCB2 /* Rule.swift */,
+				F4B6C3DC1FC2A27F001CBCB2 /* RuleEngine.swift */,
+			);
+			path = RuleEngine;
+			sourceTree = "<group>";
+		};
+		F4B6C3DD1FC2A27F001CBCB2 /* TrackingDataCollection */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3DE1FC2A27F001CBCB2 /* NodeInfo.swift */,
+				F4B6C3DF1FC2A27F001CBCB2 /* TrackingDataCollection.swift */,
+			);
+			path = TrackingDataCollection;
+			sourceTree = "<group>";
+		};
+		F4B6C3E01FC2A27F001CBCB2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3E21FC2A27F001CBCB2 /* TagGenerator.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F4B6C3E31FC2A27F001CBCB2 /* TrackDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3E41FC2A27F001CBCB2 /* CompositeImpression.swift */,
+				F4B6C3E51FC2A27F001CBCB2 /* ContentTrackableEntityProtocol.swift */,
+				F4B6C3E61FC2A27F001CBCB2 /* ImpressionTracking.swift */,
+				F4B6C3E71FC2A27F001CBCB2 /* TrackingData.swift */,
+			);
+			path = TrackDataModels;
+			sourceTree = "<group>";
+		};
+		F4B6C3E81FC2A27F001CBCB2 /* EventHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3E91FC2A27F001CBCB2 /* TrackEventHandler.swift */,
+			);
+			path = EventHandlers;
+			sourceTree = "<group>";
+		};
+		F4B6C3EA1FC2A280001CBCB2 /* ThrottlingManager */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3EB1FC2A280001CBCB2 /* EventData.swift */,
+				F4B6C3EC1FC2A280001CBCB2 /* ThrottlingManager.swift */,
+				F4B6C3ED1FC2A280001CBCB2 /* TrackableEvent.swift */,
+			);
+			path = ThrottlingManager;
+			sourceTree = "<group>";
+		};
+		F4B6C3EE1FC2A280001CBCB2 /* TrackableContainerViews */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3FA1FC2A280001CBCB2 /* TrackableUICollectionView.swift */,
+				F4B6C3FB1FC2A280001CBCB2 /* TrackableUITableView.swift */,
+				F4B6C3F01FC2A280001CBCB2 /* TrackableObjCollectionViewCell.h */,
+				F4B6C3F11FC2A280001CBCB2 /* TrackableObjCollectionViewCell.m */,
+				F4B6C3F21FC2A280001CBCB2 /* TrackableObjcScrollView.h */,
+				F4B6C3F31FC2A280001CBCB2 /* TrackableObjcScrollView.m */,
+				F4B6C3F41FC2A280001CBCB2 /* TrackableObjcUICollectionView.h */,
+				F4B6C3F51FC2A280001CBCB2 /* TrackableObjcUICollectionView.m */,
+				F4B6C3F61FC2A280001CBCB2 /* TrackableObjcUITableView.h */,
+				F4B6C3F71FC2A280001CBCB2 /* TrackableObjcUITableView.m */,
+				F4B6C4261FC2DD62001CBCB2 /* TrackableASCollectionNode.swift */,
+				F4B6C4251FC2DD61001CBCB2 /* TrackableASControlNode.swift */,
+				F4B6C4271FC2DD62001CBCB2 /* TrackableASDisplayNode.swift */,
+				F4B6C4241FC2DD61001CBCB2 /* TrackableASTableNode.swift */,
+			);
+			path = TrackableContainerViews;
+			sourceTree = "<group>";
+		};
+		F4B6C3FC1FC2A280001CBCB2 /* TrackingDataProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3FD1FC2A280001CBCB2 /* TrackingDataProcessor.swift */,
+			);
+			path = TrackingDataProcessor;
+			sourceTree = "<group>";
+		};
+		F4B6C3FE1FC2A280001CBCB2 /* TrackingManager */ = {
+			isa = PBXGroup;
+			children = (
+				F4B6C3FF1FC2A280001CBCB2 /* EventConsumer.swift */,
+				F4B6C4001FC2A280001CBCB2 /* RuleBasedConsumer.swift */,
+				F4B6C4011FC2A280001CBCB2 /* RuleBasedEventPublisher.swift */,
+				F4B6C4021FC2A280001CBCB2 /* TrackingManager.swift */,
+			);
+			path = TrackingManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F4B6C3BB1FC2A257001CBCB2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B6C42E1FC2EB75001CBCB2 /* GenericTrackingFramework.h in Headers */,
+				F4B6C4191FC2A280001CBCB2 /* TrackableObjcUITableView.h in Headers */,
+				F4B6C4131FC2A280001CBCB2 /* TrackableObjCollectionViewCell.h in Headers */,
+				F4B6C4171FC2A280001CBCB2 /* TrackableObjcUICollectionView.h in Headers */,
+				F4B6C4151FC2A280001CBCB2 /* TrackableObjcScrollView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F4B6C3BD1FC2A257001CBCB2 /* GenericTrackingFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B6C3D21FC2A257001CBCB2 /* Build configuration list for PBXNativeTarget "GenericTrackingFramework" */;
+			buildPhases = (
+				F4B6C3B91FC2A257001CBCB2 /* Sources */,
+				F4B6C3BA1FC2A257001CBCB2 /* Frameworks */,
+				F4B6C3BB1FC2A257001CBCB2 /* Headers */,
+				F4B6C3BC1FC2A257001CBCB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenericTrackingFramework;
+			productName = GenericTrackingFramework;
+			productReference = F4B6C3BE1FC2A257001CBCB2 /* GenericTrackingFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F4B6C3C61FC2A257001CBCB2 /* GenericTrackingFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B6C3D51FC2A257001CBCB2 /* Build configuration list for PBXNativeTarget "GenericTrackingFrameworkTests" */;
+			buildPhases = (
+				F4B6C3C31FC2A257001CBCB2 /* Sources */,
+				F4B6C3C41FC2A257001CBCB2 /* Frameworks */,
+				F4B6C3C51FC2A257001CBCB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4B6C3CA1FC2A257001CBCB2 /* PBXTargetDependency */,
+			);
+			name = GenericTrackingFrameworkTests;
+			productName = GenericTrackingFrameworkTests;
+			productReference = F4B6C3C71FC2A257001CBCB2 /* GenericTrackingFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4B6C3B51FC2A257001CBCB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Flipkart;
+				TargetAttributes = {
+					F4B6C3BD1FC2A257001CBCB2 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					F4B6C3C61FC2A257001CBCB2 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F4B6C3B81FC2A257001CBCB2 /* Build configuration list for PBXProject "GenericTrackingFramework" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F4B6C3B41FC2A257001CBCB2;
+			productRefGroup = F4B6C3BF1FC2A257001CBCB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4B6C3BD1FC2A257001CBCB2 /* GenericTrackingFramework */,
+				F4B6C3C61FC2A257001CBCB2 /* GenericTrackingFrameworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4B6C3BC1FC2A257001CBCB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B6C3C51FC2A257001CBCB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4B6C3B91FC2A257001CBCB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B6C4291FC2DD62001CBCB2 /* TrackableASControlNode.swift in Sources */,
+				F4B6C4221FC2A280001CBCB2 /* RuleBasedEventPublisher.swift in Sources */,
+				F4B6C4231FC2A280001CBCB2 /* TrackingManager.swift in Sources */,
+				F4B6C40F1FC2A280001CBCB2 /* EventData.swift in Sources */,
+				F4B6C40A1FC2A280001CBCB2 /* CompositeImpression.swift in Sources */,
+				F4B6C4201FC2A280001CBCB2 /* EventConsumer.swift in Sources */,
+				F4B6C4051FC2A280001CBCB2 /* RuleEngine.swift in Sources */,
+				F4B6C40B1FC2A280001CBCB2 /* ContentTrackableEntityProtocol.swift in Sources */,
+				F4B6C4181FC2A280001CBCB2 /* TrackableObjcUICollectionView.m in Sources */,
+				F4B6C4031FC2A280001CBCB2 /* ScreenLevelTracker.swift in Sources */,
+				F4B6C40C1FC2A280001CBCB2 /* ImpressionTracking.swift in Sources */,
+				F4B6C40D1FC2A280001CBCB2 /* TrackingData.swift in Sources */,
+				F4B6C4101FC2A280001CBCB2 /* ThrottlingManager.swift in Sources */,
+				F4B6C42A1FC2DD62001CBCB2 /* TrackableASCollectionNode.swift in Sources */,
+				F4B6C40E1FC2A280001CBCB2 /* TrackEventHandler.swift in Sources */,
+				F4B6C4211FC2A280001CBCB2 /* RuleBasedConsumer.swift in Sources */,
+				F4B6C4161FC2A280001CBCB2 /* TrackableObjcScrollView.m in Sources */,
+				F4B6C41A1FC2A280001CBCB2 /* TrackableObjcUITableView.m in Sources */,
+				F4B6C4071FC2A280001CBCB2 /* TrackingDataCollection.swift in Sources */,
+				F4B6C41E1FC2A280001CBCB2 /* TrackableUITableView.swift in Sources */,
+				F4B6C4041FC2A280001CBCB2 /* Rule.swift in Sources */,
+				F4B6C4061FC2A280001CBCB2 /* NodeInfo.swift in Sources */,
+				F4B6C4281FC2DD62001CBCB2 /* TrackableASTableNode.swift in Sources */,
+				F4B6C4091FC2A280001CBCB2 /* TagGenerator.swift in Sources */,
+				F4B6C42B1FC2DD62001CBCB2 /* TrackableASDisplayNode.swift in Sources */,
+				F4B6C41F1FC2A280001CBCB2 /* TrackingDataProcessor.swift in Sources */,
+				F4B6C41D1FC2A280001CBCB2 /* TrackableUICollectionView.swift in Sources */,
+				F4B6C4111FC2A280001CBCB2 /* TrackableEvent.swift in Sources */,
+				F4B6C4141FC2A280001CBCB2 /* TrackableObjCollectionViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B6C3C31FC2A257001CBCB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B6C3CD1FC2A257001CBCB2 /* GenericTrackingFrameworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F4B6C3CA1FC2A257001CBCB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4B6C3BD1FC2A257001CBCB2 /* GenericTrackingFramework */;
+			targetProxy = F4B6C3C91FC2A257001CBCB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F4B6C3D01FC2A257001CBCB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F4B6C3D11FC2A257001CBCB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4B6C3D31FC2A257001CBCB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 25JQ655X97;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GenericTrackingFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.GenericTrackingFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4B6C3D41FC2A257001CBCB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 25JQ655X97;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GenericTrackingFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.GenericTrackingFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F4B6C3D61FC2A257001CBCB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 25JQ655X97;
+				INFOPLIST_FILE = GenericTrackingFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.GenericTrackingFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4B6C3D71FC2A257001CBCB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 25JQ655X97;
+				INFOPLIST_FILE = GenericTrackingFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.GenericTrackingFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4B6C3B81FC2A257001CBCB2 /* Build configuration list for PBXProject "GenericTrackingFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B6C3D01FC2A257001CBCB2 /* Debug */,
+				F4B6C3D11FC2A257001CBCB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B6C3D21FC2A257001CBCB2 /* Build configuration list for PBXNativeTarget "GenericTrackingFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B6C3D31FC2A257001CBCB2 /* Debug */,
+				F4B6C3D41FC2A257001CBCB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B6C3D51FC2A257001CBCB2 /* Build configuration list for PBXNativeTarget "GenericTrackingFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B6C3D61FC2A257001CBCB2 /* Debug */,
+				F4B6C3D71FC2A257001CBCB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4B6C3B51FC2A257001CBCB2 /* Project object */;
+}
