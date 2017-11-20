@@ -1,17 +1,20 @@
 //
-//  TrackableRCTScrollView.h
+//  TrackableObjcScrollView.h
 //  Flipkart
 //
-//  Created by Krati Jain on 11/05/17.
+//  Created by Krati Jain on 20/04/17.
 //  Copyright © 2017 flipkart.com. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <React/RCTScrollView.h>
+#import <UIKit/UIKit.h>
+@class ScreenLevelTracker;
+@class FrameData;
 
 
-//Trackable RCTScrollView for react native
-@interface TrackableRCTScrollView : RCTScrollView<ContentTrackableEntityProtocol>
+@protocol ContentTrackableEntityProtocol;
+
+//Trackable Objective C ScrollView
+@interface TrackableObjcScrollView : UIScrollView<ContentTrackableEntityProtocol>
 
 #pragma mark ContentTrackableEntityProtocol property
 @property (nonatomic, strong) ScreenLevelTracker * _Nullable tracker;
@@ -19,7 +22,6 @@
 @property (nonatomic) BOOL isScrollable;
 @property (nonatomic,strong) NSMutableArray<id <ContentTrackableEntityProtocol>> * _Nullable trackableChildren;
 
-//last offset which was tracked by the framework
 @property (nonatomic,assign) CGPoint lastTrackedOffset;
 
 @end

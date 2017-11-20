@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class FrameData: NSObject {
+@objc public class FrameData: NSObject {
 
     //TODO Implement copy
 
     var uniqueId: String
-    var absoluteFrame: CGRect
+    @objc public var absoluteFrame: CGRect
     var impressionTracking: ImpressionTracking?
     var isWidget: Bool
     var tags: Set<String>?
     var additionalInfo : NSDictionary? = nil
     
-    init(uId: String, frame: CGRect, impressionTracking: ImpressionTracking?, isWidget: Bool = false, tags: Set<String>? = nil) {
+    @objc public init(uId: String, frame: CGRect, impressionTracking: ImpressionTracking?, isWidget: Bool = false, tags: Set<String>? = nil) {
 
         self.uniqueId = uId
         self.absoluteFrame = frame
@@ -31,7 +31,7 @@ class FrameData: NSObject {
 }
 
 //Any view that wants to be tracked should implement this protocol
-@objc protocol ContentTrackableEntityProtocol {
+@objc public protocol ContentTrackableEntityProtocol {
 
     //tracker for calling tracking related methods
     var tracker: ScreenLevelTracker? { get }

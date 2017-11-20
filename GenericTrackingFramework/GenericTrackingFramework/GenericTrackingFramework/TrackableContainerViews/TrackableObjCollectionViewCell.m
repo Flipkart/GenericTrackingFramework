@@ -7,6 +7,7 @@
 //
 
 #import "TrackableObjCollectionViewCell.h"
+#import <GenericTrackingFramework/GenericTrackingFramework-Swift.h>
 
 @implementation TrackableObjCollectionViewCell
 

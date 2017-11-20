@@ -11,8 +11,8 @@ import UIKit
 //Trackable swift collection view
 open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityProtocol {
 
-    internal var trackData: FrameData?
-    internal var isScrollable: Bool = true
+    public var trackData: FrameData?
+    public var isScrollable: Bool = true
     
     //last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
@@ -48,7 +48,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
     }
 
-    internal func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
+    public func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
 
         return self.visibleCells.flatMap { (node) in
             return node.subviews.flatMap({ (subnode) in
@@ -66,13 +66,13 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
     }
 }
 
-public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+@objc public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    weak var trackerDelegate: ScreenLevelTracker?
-    weak var delegate: UICollectionViewDelegate?
+    @objc public weak var trackerDelegate: ScreenLevelTracker?
+    @objc public weak var delegate: UICollectionViewDelegate?
     weak var collectionView: UICollectionView?
 
-    init(collectionView: UICollectionView) {
+    @objc public init(collectionView: UICollectionView) {
 
         self.collectionView = collectionView
         super.init()
@@ -105,13 +105,13 @@ public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewD
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let newContentOffset: CGPoint = scrollView.contentOffset
-
+/*
         if let trackableObjcCollection = collectionView as? TrackableObjcUICollectionView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableObjcCollection.lastTrackedOffset) ?? false {
                 trackableObjcCollection.lastTrackedOffset = newContentOffset
             }
         }
-
+*/
         if let trackableCollection = collectionView as? TrackableUICollectionView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableCollection.lastTrackedOffset) ?? false {
                 trackableCollection.lastTrackedOffset = newContentOffset

@@ -11,8 +11,8 @@ import UIKit
 //Trackable swift Table View
 open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
 
-    internal var trackData: FrameData?
-    internal var isScrollable: Bool = true
+    public var trackData: FrameData?
+    public var isScrollable: Bool = true
     
     //last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
@@ -48,7 +48,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         }
     }
 
-    internal func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
+    public func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
 
         return self.visibleCells.flatMap { (node) in
             return node.subviews.flatMap({ (subnode) in
@@ -66,13 +66,13 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     }
 }
 
-public class TrackableTableViewWrapperDelegate: NSObject, UITableViewDelegate {
+@objc public class TrackableTableViewWrapperDelegate: NSObject, UITableViewDelegate {
 
-    weak var trackerDelegate: ScreenLevelTracker?
-    weak var delegate: UITableViewDelegate?
+    @objc public weak var trackerDelegate: ScreenLevelTracker?
+    @objc public weak var delegate: UITableViewDelegate?
     weak var tableView: UITableView?
 
-    init(tableView: TrackableUITableView) {
+    @objc public init(tableView: TrackableUITableView) {
 
         self.tableView = tableView
         super.init()
@@ -105,13 +105,13 @@ public class TrackableTableViewWrapperDelegate: NSObject, UITableViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let newContentOffset = scrollView.contentOffset
-
+/*
         if let trackableObjTableView = tableView as? TrackableObjcUITableView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableObjTableView.lastTrackedOffset) ?? false {
                 trackableObjTableView.lastTrackedOffset = newContentOffset
             }
         }
-
+*/
         if let trackableUITableView = tableView as? TrackableUITableView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableUITableView.lastTrackedOffset) ?? false {
                 trackableUITableView.lastTrackedOffset = newContentOffset

@@ -7,7 +7,7 @@
 //
 
 #import "TrackableObjcScrollView.h"
-#import "GenericTrackingFramework.h"
+#import <GenericTrackingFramework/GenericTrackingFramework-Swift.h>
 
 //Custom delegate for the TrackableObjcScrollView ; This has both the tracking Delegate as well as delegate set from its creating view
 @interface TrackableScrollViewDelegate : NSObject<UIScrollViewDelegate>

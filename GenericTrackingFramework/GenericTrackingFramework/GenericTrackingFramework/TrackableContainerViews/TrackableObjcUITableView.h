@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GenericTrackingFramework-Swift.h"
+@class ScreenLevelTracker;
+@class FrameData;
 
 @protocol ContentTrackableEntityProtocol;
 

@@ -7,6 +7,7 @@
 //
 
 #import "TrackableObjcUICollectionView.h"
+#import <GenericTrackingFramework/GenericTrackingFramework-Swift.h>
 
 @interface TrackableObjcUICollectionView()
 @property (nonatomic,strong) TrackableCollectionViewWrapperDelegate *wrapperDelegate;

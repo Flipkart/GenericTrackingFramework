@@ -7,7 +7,7 @@
 //
 
 #import "TrackableObjcUITableView.h"
-#import "GenericTrackingFramework.h"
+#import <GenericTrackingFramework/GenericTrackingFramework-Swift.h>
 
 @interface TrackableObjcUITableView()
 @property (nonatomic,strong) TrackableTableViewWrapperDelegate *wrapperDelegate;

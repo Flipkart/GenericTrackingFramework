@@ -14,7 +14,7 @@ import AsyncDisplayKit
  ***/
 
 //Every screen has only one screenLevelTracker which is responsible for view,scroll and click events of its widgets & content
-public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
+@objc public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
 
     //uniquely identifying the screen of this tracker
     var eventScreen: String
@@ -23,7 +23,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     let throttler: ThrottlingManager
 
     //takes the default throttlingCriteria
-    init(screen: String) {
+    public init(screen: String) {
 
         self.eventScreen = screen
         
@@ -34,7 +34,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //custom trackingManager for processing events
-    init(screen: String, trackingManager: TrackingManager) {
+    public init(screen: String, trackingManager: TrackingManager) {
 
         self.eventScreen = screen
         
@@ -45,7 +45,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //custom throttling criteria for eventThrottler
-    init(screen: String, throttlingCriteria: [String: [Rule]]?) {
+    public init(screen: String, throttlingCriteria: [String: [Rule]]?) {
 
         self.eventScreen = screen
         self.throttler = ThrottlingManager(criteria: throttlingCriteria, successHandler: { event in
@@ -54,7 +54,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //for each scroll event, calculate offset delta and pass the event to eventThrottler
-    func trackScrollEvent(_ scrollView: UIScrollView, lastTrackedOffset: CGPoint) -> Bool {
+    @objc public func trackScrollEvent(_ scrollView: UIScrollView, lastTrackedOffset: CGPoint) -> Bool {
 
         let newContentOffset: CGPoint = scrollView.contentOffset
         let scrollOffsetDelta: CGPoint = CGPoint(x: newContentOffset.x - lastTrackedOffset.x, y: newContentOffset.y - lastTrackedOffset.y)
@@ -65,7 +65,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //register scroll view for tracking and assign it a unique tag
-    func registerScrollView(_ scrollView: UIScrollView) {
+    @objc public func registerScrollView(_ scrollView: UIScrollView) {
 
         if scrollView.tag <= 0 {
             scrollView.tag = TagGenerator.sharedInstance.getNextAvailableTag()
@@ -73,7 +73,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //sends the event to eventThrottler if the track data is valid
-    func trackEvent(eventName:String,data:FrameData?,parentId:String?,scrollTag:String?){
+    public func trackEvent(eventName:String,data:FrameData?,parentId:String?,scrollTag:String?){
         
         //prepare ID,WigTracking data and pass to throttler
         if let trackData = data {
@@ -87,7 +87,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
     
     //bubbles down the event while traversing the whole view hierarchy for trackable views and their children
-    func trackViewHierarchyFor(view: ContentTrackableEntityProtocol, event: String, scrollTag: String?, parentId: String?) {
+    public func trackViewHierarchyFor(view: ContentTrackableEntityProtocol, event: String, scrollTag: String?, parentId: String?) {
 
         var parentScrollTag = scrollTag
         var parent = parentId
@@ -118,6 +118,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
                 tag = view.tag
                 absoluteFrame = view.convert(view.bounds, to: nil)
                 break
+                
             case (let view as TrackableObjcUICollectionView):
                 view.tracker = self
                 tag = view.tag
@@ -133,8 +134,8 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
                 tag = view.tag
                 absoluteFrame = view.convert(view.bounds, to: nil)
                 
+                
                 /***
-                 
                  Uncomment following code to support tracking for Async Display KiT
                  
             case (let node as TrackableASCollectionNode):
@@ -174,7 +175,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //triggers visiblity change for whole view hierarchy of screen when app becomes active - this indirectly fires view started for each trackable view on screen
-    func appBecameActive() {
+    public func appBecameActive() {
 
         let eventData = VisibilityChangeEventData(screen: self.eventScreen, isVisible: true)
         let event = TrackableEvent(eventType: EventNames.visibilityChange, eventData: eventData)
@@ -182,7 +183,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //triggers visiblity change for whole view hierarchy of screen when app becomes inactive (pushed in background or locked) - this indirectly fires view ended for each trackable view on screen
-    func appBecameInactive() {
+    public func appBecameInactive() {
 
         let eventData = VisibilityChangeEventData(screen: self.eventScreen, isVisible: false)
         let event = TrackableEvent(eventType: EventNames.visibilityChange, eventData: eventData)
@@ -190,7 +191,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //triggers view started event for this node
-    func trackViewAppear(trackData: FrameData?) {
+    @objc public func trackViewAppear(trackData: FrameData?) {
 
         //update visiblity %
         if let trackData = trackData {
@@ -201,7 +202,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //triggers view ended event for this node
-    func trackViewDisappear(trackData: FrameData?) {
+    public func trackViewDisappear(trackData: FrameData?) {
 
         //delete the entry the widget/content
         if let trackData = trackData {
@@ -212,7 +213,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //triggers data change event to update thid node's data in the TrackingDataProcessor's view hierarchy for this screen
-    func trackModelChange(oldId: String?, trackData: FrameData) {
+    public func trackModelChange(oldId: String?, trackData: FrameData) {
 
         //update the data corresponding to this widget/content
         if let uId = oldId {
@@ -223,7 +224,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
 
     //triggers content click event for this node
-    func trackContentClick(trackData: FrameData?) {
+    public func trackContentClick(trackData: FrameData?) {
 
         if let trackData = trackData {
             let eventData = ContentClickData(screen: self.eventScreen, uId: trackData.uniqueId)
@@ -233,7 +234,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
     
     //triggers content click event for this node with additional event data to be passed on
-    func trackContentClick(for event: String, with data:EventData) {
+    public func trackContentClick(for event: String, with data:EventData) {
         if event == EventNames.video || event == EventNames.contentEngagement {
             let event = TrackableEvent(eventType: EventNames.contentClick, eventData: data)
             let _ = throttler.throttleEvent(event)
@@ -241,7 +242,7 @@ public class ScreenLevelTracker: NSObject, UIScrollViewDelegate {
     }
     
     //directly adds the entity with parent as tree root if parentId is nil and begins its tracking - this method should be used in cases when the view was not discovered and added before becoming visible
-    func beginTracking(entity: ContentTrackableEntityProtocol, parentId : String?) {
+    public func beginTracking(entity: ContentTrackableEntityProtocol, parentId : String?) {
         if let trackData = entity.trackData {
             
             let eventData = ViewEventData(screen: self.eventScreen, uniqueId: trackData.uniqueId, absoluteFrame: trackData.absoluteFrame, impressionTracking: trackData.impressionTracking, percentVisibility: 0, scrollTag: parentId, parentId: parentId, tags: trackData.tags, isVisible: false, isWidget: trackData.isWidget, additionalInfo : trackData.additionalInfo)

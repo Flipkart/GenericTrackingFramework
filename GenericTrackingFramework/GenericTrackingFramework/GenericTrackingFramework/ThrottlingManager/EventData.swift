@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 
 //Protocol to be followed by each EventData which represents the data of any TrackableEvent
-@objc protocol EventData {
+@objc public protocol EventData {
     
     //screen on which the event happened
     var screen: String { get set }
