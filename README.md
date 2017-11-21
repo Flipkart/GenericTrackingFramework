@@ -8,14 +8,14 @@
 * Create recommendations out of the accumulated data
 * Enable ads monetisation from the data
 
-####Why View Tracking is required?
+#### Why View Tracking is required?
 - Capture User interaction and view activities for:
 - Crunching numbers for views/taps
 - Identifying preferred products/verticals/categories
 - Classifying his shopping habits
 - Monetize from Ads
 
-####Why is it different : 
+#### Why is it different : 
 - Processes view events on ***background thread*** 
 - dynamic (allows ***dynamic plug-in/plug-out*** of consumers as per different rules)
 
@@ -23,7 +23,7 @@
 ![Swifty Logo](https://raw.githubusercontent.com/Flipkart/GenericTrackingFramework/jazzy/GenericTrackingFramework_Steps.png)
 
 ## Usage
-Checkout the Demo project "TrackingDemo"
+"TrackingDemo" is under progress to demonstrate the usage.
 
 ## API Documentation
 
