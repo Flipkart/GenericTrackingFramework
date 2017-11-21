@@ -12,6 +12,9 @@
 
 @protocol ContentTrackableEntityProtocol;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Weverything" // To get rid of 'Cannot find protocol definition'
+
 //Trackable objc Collection View
 @interface TrackableObjcUICollectionView : UICollectionView<ContentTrackableEntityProtocol>
 

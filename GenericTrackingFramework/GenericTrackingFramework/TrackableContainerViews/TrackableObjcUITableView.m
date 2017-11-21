@@ -21,7 +21,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _isScrollable = YES;
-        _wrapperDelegate = [[TrackableTableViewWrapperDelegate alloc]initWithTableView:self];
+        _wrapperDelegate = [[TrackableTableViewWrapperDelegate alloc]initWithTableView:(TrackableUITableView *)self];
     }
     return self;
 }
@@ -33,7 +33,7 @@
     for(UITableViewCell *cell in self.visibleCells){
         for(UIView * view in cell.contentView.subviews){
             if([view conformsToProtocol:@protocol(ContentTrackableEntityProtocol)]){
-                [trackableChildren addObject:view];
+                [trackableChildren addObject:(id<ContentTrackableEntityProtocol>)view];
             }
         }
     }

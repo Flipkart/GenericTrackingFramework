@@ -44,7 +44,7 @@
     for(UITableViewCell *cell in self.visibleCells){
         for(UIView * view in cell.contentView.subviews){
             if([view conformsToProtocol:@protocol(ContentTrackableEntityProtocol)]){
-                [trackableChildren addObject:view];
+                [trackableChildren addObject:(id<ContentTrackableEntityProtocol>)view];
             }
         }
     }
