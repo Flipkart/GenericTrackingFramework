@@ -1,5 +1,9 @@
-View Tracking Framework written in Swift. Enables developers to : 
-1.Track % visibility of each view and its content
-2.Track duration of on screen time
-3.Create recommendations out of the accumulated data
-4.Enable ads monetisation from the data
+
+# GenericTrackingFramework
+
+**Generic Tracking Framework** written in Swift enables developers to : 
+
+* Track % visibility of each view and its content  
+* Track duration of on screen time  
+* Create recommendations out of the accumulated data
+* Enable ads monetisation from the data
