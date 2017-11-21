@@ -105,13 +105,13 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let newContentOffset: CGPoint = scrollView.contentOffset
-/*
+
         if let trackableObjcCollection = collectionView as? TrackableObjcUICollectionView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableObjcCollection.lastTrackedOffset) ?? false {
                 trackableObjcCollection.lastTrackedOffset = newContentOffset
             }
         }
-*/
+
         if let trackableCollection = collectionView as? TrackableUICollectionView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableCollection.lastTrackedOffset) ?? false {
                 trackableCollection.lastTrackedOffset = newContentOffset

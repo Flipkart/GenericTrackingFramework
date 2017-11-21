@@ -72,7 +72,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     @objc public weak var delegate: UITableViewDelegate?
     weak var tableView: UITableView?
 
-    @objc public init(tableView: TrackableUITableView) {
+    @objc public init(tableView: UITableView) {
 
         self.tableView = tableView
         super.init()
@@ -105,13 +105,13 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let newContentOffset = scrollView.contentOffset
-/*
+
         if let trackableObjTableView = tableView as? TrackableObjcUITableView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableObjTableView.lastTrackedOffset) ?? false {
                 trackableObjTableView.lastTrackedOffset = newContentOffset
             }
         }
-*/
+
         if let trackableUITableView = tableView as? TrackableUITableView {
             if self.trackerDelegate?.trackScrollEvent(scrollView, lastTrackedOffset: trackableUITableView.lastTrackedOffset) ?? false {
                 trackableUITableView.lastTrackedOffset = newContentOffset
