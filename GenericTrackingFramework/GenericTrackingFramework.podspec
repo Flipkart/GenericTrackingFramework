@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Flipkart/GenericTrackingFramework.git', :tag => '1.0.2' }
   s.social_media_url = 'https://twitter.com/@kratijain'
   s.ios.deployment_target = '8.0'
-  s.source_files = 'GenericTrackingFramework/**/*.{h,m}'
+  s.source_files = 'GenericTrackingFramework/**/*.{h,m,swift}'
 
    s.frameworks = 'UIKit'
 end

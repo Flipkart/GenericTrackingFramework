@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F48968EA1FC33FBF00A8A470 /* GenericTrackingFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48968E01FC33FBE00A8A470 /* GenericTrackingFramework.framework */; };
-		F48968EF1FC33FBF00A8A470 /* GenericTrackingFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48968EE1FC33FBF00A8A470 /* GenericTrackingFrameworkTests.swift */; };
 		F48968F11FC33FBF00A8A470 /* GenericTrackingFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F48968E31FC33FBE00A8A470 /* GenericTrackingFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F48969161FC3400200A8A470 /* ScreenLevelTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48968FB1FC3400100A8A470 /* ScreenLevelTracker.swift */; };
 		F48969171FC3400200A8A470 /* NodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48968FD1FC3400100A8A470 /* NodeInfo.swift */; };
@@ -45,23 +43,10 @@
 		F489694B1FC3438C00A8A470 /* TrackableObjcScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F48969411FC3438B00A8A470 /* TrackableObjcScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F48968EB1FC33FBF00A8A470 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F48968D71FC33FBE00A8A470 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F48968DF1FC33FBE00A8A470;
-			remoteInfo = GenericTrackingFramework;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		F48968E01FC33FBE00A8A470 /* GenericTrackingFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenericTrackingFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48968E31FC33FBE00A8A470 /* GenericTrackingFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenericTrackingFramework.h; sourceTree = "<group>"; };
 		F48968E41FC33FBE00A8A470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F48968E91FC33FBF00A8A470 /* GenericTrackingFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenericTrackingFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F48968EE1FC33FBF00A8A470 /* GenericTrackingFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTrackingFrameworkTests.swift; sourceTree = "<group>"; };
-		F48968F01FC33FBF00A8A470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F48968FB1FC3400100A8A470 /* ScreenLevelTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenLevelTracker.swift; sourceTree = "<group>"; };
 		F48968FD1FC3400100A8A470 /* NodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeInfo.swift; sourceTree = "<group>"; };
 		F48968FE1FC3400100A8A470 /* TrackingDataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDataCollection.swift; sourceTree = "<group>"; };
@@ -105,14 +90,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F48968E61FC33FBF00A8A470 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F48968EA1FC33FBF00A8A470 /* GenericTrackingFramework.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				F48968E21FC33FBE00A8A470 /* GenericTrackingFramework */,
-				F48968ED1FC33FBF00A8A470 /* GenericTrackingFrameworkTests */,
 				F48968E11FC33FBE00A8A470 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				F48968E01FC33FBE00A8A470 /* GenericTrackingFramework.framework */,
-				F48968E91FC33FBF00A8A470 /* GenericTrackingFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,15 +126,6 @@
 				F48968E41FC33FBE00A8A470 /* Info.plist */,
 			);
 			path = GenericTrackingFramework;
-			sourceTree = "<group>";
-		};
-		F48968ED1FC33FBF00A8A470 /* GenericTrackingFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				F48968EE1FC33FBF00A8A470 /* GenericTrackingFrameworkTests.swift */,
-				F48968F01FC33FBF00A8A470 /* Info.plist */,
-			);
-			path = GenericTrackingFrameworkTests;
 			sourceTree = "<group>";
 		};
 		F48968FA1FC3400100A8A470 /* ScreenLevelTracker */ = {
@@ -301,24 +267,6 @@
 			productReference = F48968E01FC33FBE00A8A470 /* GenericTrackingFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F48968E81FC33FBF00A8A470 /* GenericTrackingFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F48968F71FC33FBF00A8A470 /* Build configuration list for PBXNativeTarget "GenericTrackingFrameworkTests" */;
-			buildPhases = (
-				F48968E51FC33FBF00A8A470 /* Sources */,
-				F48968E61FC33FBF00A8A470 /* Frameworks */,
-				F48968E71FC33FBF00A8A470 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F48968EC1FC33FBF00A8A470 /* PBXTargetDependency */,
-			);
-			name = GenericTrackingFrameworkTests;
-			productName = GenericTrackingFrameworkTests;
-			productReference = F48968E91FC33FBF00A8A470 /* GenericTrackingFrameworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,10 +280,6 @@
 					F48968DF1FC33FBE00A8A470 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					F48968E81FC33FBF00A8A470 = {
-						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -353,20 +297,12 @@
 			projectRoot = "";
 			targets = (
 				F48968DF1FC33FBE00A8A470 /* GenericTrackingFramework */,
-				F48968E81FC33FBF00A8A470 /* GenericTrackingFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F48968DE1FC33FBE00A8A470 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F48968E71FC33FBF00A8A470 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -412,23 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F48968E51FC33FBF00A8A470 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F48968EF1FC33FBF00A8A470 /* GenericTrackingFrameworkTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F48968EC1FC33FBF00A8A470 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F48968DF1FC33FBE00A8A470 /* GenericTrackingFramework */;
-			targetProxy = F48968EB1FC33FBF00A8A470 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F48968F21FC33FBF00A8A470 /* Debug */ = {
@@ -591,36 +511,6 @@
 			};
 			name = Release;
 		};
-		F48968F81FC33FBF00A8A470 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25JQ655X97;
-				INFOPLIST_FILE = GenericTrackingFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.GenericTrackingFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F48968F91FC33FBF00A8A470 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25JQ655X97;
-				INFOPLIST_FILE = GenericTrackingFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.GenericTrackingFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -638,15 +528,6 @@
 			buildConfigurations = (
 				F48968F51FC33FBF00A8A470 /* Debug */,
 				F48968F61FC33FBF00A8A470 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F48968F71FC33FBF00A8A470 /* Build configuration list for PBXNativeTarget "GenericTrackingFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F48968F81FC33FBF00A8A470 /* Debug */,
-				F48968F91FC33FBF00A8A470 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
