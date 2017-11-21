@@ -7,3 +7,5 @@
 * Track duration of on screen time  
 * Create recommendations out of the accumulated data
 * Enable ads monetisation from the data
+
+Documentation is under progress along with the demo project.
