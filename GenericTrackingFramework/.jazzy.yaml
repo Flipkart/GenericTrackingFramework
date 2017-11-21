@@ -1,0 +1,8 @@
+author: Krati Jain
+author_url: https://twitter.com/kratijain
+github_url: https://github.com/Flipkart/GenericTrackingFramework
+root_url: https://flipkart.github.io/GenericTrackingFramework
+module: GenericTrackingFramework
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-project, 'GenericTrackingFramework.xcodeproj', -scheme, 'GenericTrackingFramework']
