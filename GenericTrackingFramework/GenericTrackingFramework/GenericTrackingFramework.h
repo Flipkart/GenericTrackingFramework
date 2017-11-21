@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TrackableObjcScrollView.h>
-#import <TrackableObjcUITableView.h>
-#import <TrackableObjcUICollectionView.h>
+#import "TrackableObjcScrollView.h"
+#import "TrackableObjcUITableView.h"
+#import "TrackableObjcUICollectionView.h"
 
 //! Project version number for GenericTrackingFramework.
 FOUNDATION_EXPORT double GenericTrackingFrameworkVersionNumber;
