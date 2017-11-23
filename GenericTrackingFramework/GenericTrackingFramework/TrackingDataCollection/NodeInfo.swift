@@ -9,22 +9,22 @@
 import Foundation
 import CoreGraphics
 
-//this holds the tracking data corresponding to each trackable view in view hierarchy for every screen
+///this holds the tracking data corresponding to each trackable view in view hierarchy for every screen
 public class NodeInfo: NSObject {
 
     var screen: String
     internal var absoluteFrame: CGRect
 
-    //whether this is a scrollable view whose data source events need to be tracked
+    ///whether this is a scrollable view whose data source events need to be tracked
     var isScrollView: Bool = false
     
-    //id of the parent view in the hierarchy
+    ///id of the parent view in the hierarchy
     var parentId: String?
     
-    //id of the first scrollable trackable view in the parent view hierarchy
+    ///id of the first scrollable trackable view in the parent view hierarchy
     internal var affectingScrollViewTag: String?
     
-    //Tracking Data for this node
+    ///Tracking Data for this node
     var trackingData: TrackingData
 
     init(uniqueId: String, screen: String, eventSourceTag: String?, frame: CGRect, impressionTracking: ImpressionTracking?, isWidget: Bool = false, tags: Set<String>? = nil, additionalInfo : NSDictionary? = nil) {
@@ -35,7 +35,7 @@ public class NodeInfo: NSObject {
         self.absoluteFrame = frame
     }
 
-    //to be invoked when converting viewEvents to TrackData
+    ///to be invoked when converting viewEvents to TrackData
     init?(from event: TrackableEvent) {
 
         guard let data = event.eventData as? ViewEventData else {

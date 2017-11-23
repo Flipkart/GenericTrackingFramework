@@ -14,7 +14,7 @@
 import Foundation
 import AsyncDisplayKit
 
-//ASControlNode which confirms the ContentTrackableEntityProtocol and hence can be tracked
+///ASControlNode which confirms the ContentTrackableEntityProtocol and hence can be tracked
 class TrackableASControlNode: ASControlNode, ContentTrackableEntityProtocol {
 
     internal var tracker: ScreenLevelTracker?
@@ -22,12 +22,12 @@ class TrackableASControlNode: ASControlNode, ContentTrackableEntityProtocol {
 
     internal var trackData: FrameData?
 
-    //the list of content that need to be tracked
+    ///the list of content that need to be tracked
     func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
         return nil
     }
 
-    //main thread
+    ///when this node enters visible state, update its trackData with absolute frame with respect to window and track view appear event
     override func didEnterVisibleState() {
         
         //calculate absolute frame

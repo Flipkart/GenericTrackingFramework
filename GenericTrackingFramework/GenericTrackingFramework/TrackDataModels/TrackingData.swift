@@ -8,14 +8,14 @@
 
 import Foundation
 
-//This is the consumable tracking data of every view
+///This is the consumable tracking data of every view
 public class TrackingData: NSObject {
 
     public var uniqueId: String
     var isWidget: Bool
     var tags: Set<String>?
     
-    //any additionalInfo that needs to be sent to consumers of this view
+    ///any additionalInfo that needs to be sent to consumers of this view
     var additionalInfo: NSDictionary? = nil
     
     var impressionTracking: ImpressionTracking?

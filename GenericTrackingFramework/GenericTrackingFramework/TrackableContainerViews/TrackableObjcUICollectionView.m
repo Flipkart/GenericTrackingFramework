@@ -16,7 +16,7 @@
 
 @implementation TrackableObjcUICollectionView
 
-//either of the below two init should be called to begin tracking the collection View
+///either of the below two init should be called to begin tracking the collection View
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
@@ -27,6 +27,7 @@
     return self;
 }
 
+///Instantiate with frame and collection view layout
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     
     self = [super initWithFrame:frame collectionViewLayout:layout];
@@ -37,6 +38,7 @@
     return self;
 }
 
+///get all the visible cells as the trackable children of this collection view if cells conform to ContentTrackableEntityProtocol
 - (NSArray<id <ContentTrackableEntityProtocol>> * _Nullable)getTrackableChildren {
         
     NSMutableArray<id<ContentTrackableEntityProtocol>> *trackableChildren = [@[] mutableCopy];
@@ -51,7 +53,7 @@
     return trackableChildren;
 }
 
-//every time the tracker is set and view is scrollable, register the tableNode and give it a unique tag; create its track data
+///every time the tracker is set and view is scrollable, register the tableNode and give it a unique tag; create its track data
 -(void)setTracker:(ScreenLevelTracker * _Nullable)tracker {
     
     if (_isScrollable) {
@@ -65,19 +67,19 @@
     _wrapperDelegate.trackerDelegate = tracker;
 }
 
-//returns the wrapper delegate
+///returns the wrapper delegate
 -(id<UICollectionViewDelegate>)delegate {
     return super.delegate;
 }
 
-//set the delegate as wrapper delegate's delegate and then set wrapper delegate as the scrollview's delegate
-//this way we support both the delegates and pass on events to both
+///set the delegate as wrapper delegate's delegate and then set wrapper delegate as the scrollview's delegate this way we support both the delegates and pass on events to both
 -(void)setDelegate:(id<UICollectionViewDelegate>)delegate {
     _wrapperDelegate.delegate = delegate;
     _wrapperDelegate.trackerDelegate = _tracker;
     super.delegate = _wrapperDelegate;
 }
 
+///When this view gets attached to window, update its tracking data with absolute frame with respect to window and track view appear event
 - (void)didMoveToWindow {
     [super didMoveToWindow];
     

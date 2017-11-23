@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+///holds the data related to the view to be tracked
 @objc public class FrameData: NSObject {
 
     //TODO Implement copy
@@ -20,6 +21,7 @@ import UIKit
     var tags: Set<String>?
     var additionalInfo : NSDictionary? = nil
     
+    ///Instantiate this FrameData with unique id, ImpressionTracking object,tags and isWidget bool
     @objc public init(uId: String, frame: CGRect, impressionTracking: ImpressionTracking?, isWidget: Bool = false, tags: Set<String>? = nil) {
 
         self.uniqueId = uId
@@ -30,19 +32,19 @@ import UIKit
     }
 }
 
-//Any view that wants to be tracked should implement this protocol
+///Any view that wants to be tracked should implement this protocol
 @objc public protocol ContentTrackableEntityProtocol {
 
-    //tracker for calling tracking related methods
+    ///tracker for calling tracking related methods
     var tracker: ScreenLevelTracker? { get }
     
-    //every view will have its own trackData which will later be consumed after event processing
+    ///every view will have its own trackData which will later be consumed after event processing
     var trackData: FrameData? { get set }
     
-    //flag to denote whether this view is scrollable and trackable, so that its data source/delegate callbacks can be tracked
+    ///flag to denote whether this view is scrollable and trackable, so that its data source/delegate callbacks can be tracked
     var isScrollable: Bool { get set }
 
-    //the list of child views that need to be tracked and follow ContentTrackableEntityProtocol
+    ///the list of child views that need to be tracked and follow ContentTrackableEntityProtocol
     func getTrackableChildren() -> [ContentTrackableEntityProtocol]?
 
 }

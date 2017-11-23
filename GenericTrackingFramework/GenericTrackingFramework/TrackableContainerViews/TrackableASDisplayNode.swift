@@ -14,8 +14,7 @@ import Foundation
 
 import AsyncDisplayKit
 
-//ASDisplayNode which conforms the ContentTrackableEntityProtocol and hence can be tracked
-
+///ASDisplayNode which conforms the ContentTrackableEntityProtocol and hence can be tracked
 class TrackableASDisplayNode: ASDisplayNode, ContentTrackableEntityProtocol {
     
     internal var tracker: ScreenLevelTracker?

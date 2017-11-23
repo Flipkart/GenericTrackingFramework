@@ -9,29 +9,29 @@
 import Foundation
 import CoreGraphics
 
-//protocol for processing track data
+///protocol for processing track data
 protocol TrackingEntityProcessor {
 
-    //to hold track data hierarchy for each screen
+    ///to hold track data hierarchy for each screen
     var screenWiseData: [String: TrackingDataCollection] { get }
 
-    //adding track data in the right screen's track data hierarchy
+    ///adding track data in the right screen's track data hierarchy
     mutating func addData(_ nodeInfo: NodeInfo)
 
-    //updating track data in the specified screen's track data hierarchy
+    ///updating track data in the specified screen's track data hierarchy
     mutating func updateData(_ nodeInfo: NodeInfo)
 
-    //removing track data for the specified screen's track data hierarchy
+    ///removing track data for the specified screen's track data hierarchy
     mutating func removeData(for screen: String, withId trackDataId: String) -> [TrackingData]?
 
-    //fetch track data for this id in specified screen's track data hierarchy
+    ///fetch track data for this id in specified screen's track data hierarchy
     func fetchData(for id: String, screen: String) -> TrackingData?
 
-    //return all nodes (as array) in the specified screen's hierarchy which are part of the subtree of this node id. Optionally perform operations on each node while traversing by specifying it as forEachNode closure
+    ///return all nodes (as array) in the specified screen's hierarchy which are part of the subtree of this node id. Optionally perform operations on each node while traversing by specifying it as forEachNode closure
     func fetchAllTreeNodes(for id: String, screen: String, forEachNode: (NodeInfo)->()) -> [TrackingData]?
 }
 
-//The Data processor for screen ; Holds TrackData for view hierarchy according to each screen
+///The Data processor for screen ; Holds TrackData for view hierarchy according to each screen
 public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
 
     var screenWiseData: [String: TrackingDataCollection]
@@ -55,12 +55,12 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
         return self.screenWiseData[screen]?.deleteData(nodeId: trackDataId)
     }
 
-    //update track data from given NodeInfo
+    ///update track data from given NodeInfo
     func updateData(_ nodeInfo: NodeInfo) {
 
         let dataId = nodeInfo.trackingData.uniqueId
 
-        //update absolute frame,% visibility and impression tracking
+        ///update absolute frame,% visibility and impression tracking
         if let oldData = (self.screenWiseData[nodeInfo.screen]?.getData(for: dataId)?.nodeInfo) {
             oldData.absoluteFrame = nodeInfo.absoluteFrame
             oldData.trackingData.impressionTracking = nodeInfo.trackingData.impressionTracking
@@ -71,13 +71,13 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
 
     }
 
-    //updates visibility % using scroll delta and returns any view-start/view-end events (in form of a map of trackData:event) to be bubbled up
+    ///updates visibility % using scroll delta and returns any view-start/view-end events (in form of a map of trackData:event) to be bubbled up
     func updateVisiblityDataUsing(_ eventData: EventData) -> [TrackingData : TrackableEvent]? {
         
-        //store any view Events by observing change in % visibility for each content
+        ///store any view Events by observing change in % visibility for each content
         var viewEvents : [TrackingData : TrackableEvent]? = [:]
 
-        //update only the tracking data affected by this scroll event
+        ///update only the tracking data affected by this scroll event
         if let scrollData = eventData as? ScrollEventData, let trackingData = self.screenWiseData[scrollData.screen]?.getData(for: String(scrollData.scrollSourceTag)), let childIdArr = trackingData.childNodes {
             
             //for each child, update frames and get any view events if they occur while updating the % visibility
@@ -95,7 +95,7 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
         return viewEvents
     }
 
-    //update track data from given view event
+    ///update track data from given view event
     internal func updateData(from event: TrackableEvent) {
 
         if let viewData = event.eventData as? ViewEventData {
@@ -115,14 +115,14 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
         }
     }
 
-    //get view event from change in visibility so that view start/view end can be detected
+    ///get view event from change in visibility so that view start/view end can be detected
     fileprivate func getViewEventType(oldVisibility : Float, newVisibility: Float) -> Int {
         if oldVisibility<=0 && newVisibility > 0 { return 1 } // view start event
         else if oldVisibility > 0 && newVisibility <= 0 { return 2} //view end event
         return 0
     }
     
-    //update frames for each node in the subtree of view identified by scrollTag and pass on any view events on the way
+    ///update frames for each node in the subtree of view identified by scrollTag and pass on any view events on the way
     internal func updateFramesRecursively(on screen: String, scrollTag: String?, scrollDelta: CGPoint) -> [TrackingData : TrackableEvent]? {
 
         var viewEvents : [TrackingData :  TrackableEvent]? = [:]
@@ -186,21 +186,21 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
         return viewEvents
     }
 
-    //calculate the visibility of the node in the screen window
+    ///calculate the visibility of the node in the screen window
     internal func calculateVisibility(for nodeInfo: NodeInfo) -> Float {
 
         var visibility: Float = 0.0
         
-        //current frame with respect to Window
+        ///current frame with respect to Window
         var visibleFrame = nodeInfo.absoluteFrame
         
-        //Area right now
+        ///Area right now
         let totalArea: Float = Float(visibleFrame.size.width) * Float(visibleFrame.size.height)
         
-        //tag of the scroll view whose scrolling affects this view's frame
+        ///tag of the scroll view whose scrolling affects this view's frame
         var tag: String? = nodeInfo.affectingScrollViewTag
 
-        //recursively calculate intersection with every scrollview/parent trackable in the parent hierarchy untill window and then update visible frame
+        ///recursively calculate intersection with every scrollview/parent trackable in the parent hierarchy untill window and then update visible frame
         while let scrollTag = tag, let scrollViewData = self.screenWiseData[nodeInfo.screen]?.getData(for: scrollTag)?.nodeInfo {
             
             let parentFrame = scrollViewData.absoluteFrame
@@ -224,7 +224,7 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
         return self.screenWiseData[screen]?.getData(for: id)?.nodeInfo.trackingData
     }
 
-    //traverse the subtree of the specified node id and perform closure forEachNode while traversing; return the array of all nodes in subtree at last
+    ///traverse the subtree of the specified node id and perform closure forEachNode while traversing; return the array of all nodes in subtree at last
     func fetchAllTreeNodes(for id: String, screen: String, forEachNode: (NodeInfo)->()) -> [TrackingData]? {
 
         var allData: [TrackingData]? = []
@@ -246,7 +246,7 @@ public class TrackingDataProcessor: NSObject, TrackingEntityProcessor {
         return allData
     }
 
-    //update each node in the screen with given visibility
+    ///update each node in the screen with given visibility
     func updateAllData(for screen: String, isVisible: Bool) ->[TrackingData]?{
         
         //if the tree for this screen exists

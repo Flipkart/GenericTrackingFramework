@@ -15,7 +15,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Weverything" // To get rid of 'Cannot find protocol definition'
 
-//Trackable objc Collection View
+///Trackable objc Collection View
 @interface TrackableObjcUICollectionView : UICollectionView<ContentTrackableEntityProtocol>
 
 #pragma mark ContentTrackableEntityProtocol property
@@ -23,7 +23,7 @@
 @property (nonatomic, strong) FrameData * _Nullable trackData;
 @property (nonatomic) BOOL isScrollable;
 
-//last offset which was tracked by the framework
+///last offset which was tracked by the framework
 @property (nonatomic,assign) CGPoint lastTrackedOffset;
 
 @end

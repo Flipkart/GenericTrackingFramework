@@ -14,13 +14,13 @@
 import Foundation
 import AsyncDisplayKit
 
-//Trackable ASCollectionNode
+///Trackable ASCollectionNode
 open class TrackableASCollectionNode: ASCollectionNode, ContentTrackableEntityProtocol {
 
     internal var trackData: FrameData?
     internal var isScrollable: Bool = true
     
-    //last offset which was tracked by the framework
+    ///last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
 
     fileprivate lazy var wrapperDelegate: WrapperDelegate? = self.initializeWrapperDelegate()
@@ -77,7 +77,7 @@ open class TrackableASCollectionNode: ASCollectionNode, ContentTrackableEntityPr
     }
 }
 
-//Custom delegate for the TrackableASCollectionNode ; This has both the tracking Delegate as well as delegate set from its creating view
+///Custom delegate for the TrackableASCollectionNode ; This has both the tracking Delegate as well as delegate set from its creating view
 fileprivate class WrapperDelegate: NSObject, ASCollectionDelegate {
 
     weak var trackerDelegate: ScreenLevelTracker?
