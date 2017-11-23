@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import GenericTrackingFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let connectionConsumer = ConnectionConsumer.sharedInstance
+        TrackingManager.sharedInstance.register(consumer: connectionConsumer, rules: connectionConsumer.connectionConsumerRules)
         return true
     }
 

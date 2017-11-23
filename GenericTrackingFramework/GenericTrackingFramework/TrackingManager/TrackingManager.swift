@@ -23,7 +23,7 @@ protocol EventProcessor {
 //Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
 public class TrackingManager: NSObject {
 
-    static let sharedInstance = TrackingManager()
+    public static let sharedInstance = TrackingManager()
 
     //counter to assign unique Id to each consumer at time of registering
     fileprivate var counter: Int = 1

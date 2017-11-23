@@ -23,7 +23,7 @@ public class Rule: NSObject {
     var operation: EvaluationOperation
     var requiredValue: Any
 
-    init(property: String, evalOp: EvaluationOperation, value: Any) {
+    public init(property: String, evalOp: EvaluationOperation, value: Any) {
         self.propertyToEvaluate = property
         self.operation = evalOp
         self.requiredValue = value
@@ -36,7 +36,7 @@ public class EventWiseRules: NSObject {
     var eventType: String
     var rules: [Rule]
 
-    init(eventType: String, rules: [Rule]) {
+    public init(eventType: String, rules: [Rule]) {
         self.eventType = eventType
         self.rules = rules
     }

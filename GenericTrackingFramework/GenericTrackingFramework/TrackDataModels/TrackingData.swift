@@ -11,7 +11,7 @@ import Foundation
 //This is the consumable tracking data of every view
 public class TrackingData: NSObject {
 
-    internal var uniqueId: String
+    public var uniqueId: String
     var isWidget: Bool
     var tags: Set<String>?
     

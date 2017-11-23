@@ -30,7 +30,7 @@ public class ImpressionTracking: NSObject {
     var viewType: String?
     var widgetType: String?
 
-    init(navigationContextId: String?, impression: CompositeImpression?) {
+    public init(navigationContextId: String?, impression: CompositeImpression?) {
 
         self.navigationContextId = navigationContextId
         self.impression = impression

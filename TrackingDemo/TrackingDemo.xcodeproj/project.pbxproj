@@ -13,6 +13,14 @@
 		F4433A701FC402680062A378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4433A6E1FC402680062A378 /* Main.storyboard */; };
 		F4433A721FC402680062A378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4433A711FC402680062A378 /* Assets.xcassets */; };
 		F4433A751FC402680062A378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4433A731FC402680062A378 /* LaunchScreen.storyboard */; };
+		F48C0FCB1FC441E200D6F4BC /* TypeOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0FCA1FC441E200D6F4BC /* TypeOneCell.swift */; };
+		F48C0FCD1FC441F100D6F4BC /* TypeTwoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0FCC1FC441F100D6F4BC /* TypeTwoCell.swift */; };
+		F48C0FCF1FC44F7600D6F4BC /* TypeOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48C0FCE1FC44F7600D6F4BC /* TypeOneCell.xib */; };
+		F48C0FD11FC450E200D6F4BC /* TypeTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48C0FD01FC450E200D6F4BC /* TypeTwoCell.xib */; };
+		F48C0FD51FC45C8D00D6F4BC /* user1.png in Resources */ = {isa = PBXBuildFile; fileRef = F48C0FD31FC45B0E00D6F4BC /* user1.png */; };
+		F48C0FD61FC45C8F00D6F4BC /* user2.png in Resources */ = {isa = PBXBuildFile; fileRef = F48C0FD41FC45B1700D6F4BC /* user2.png */; };
+		F48C0FD71FC45C9200D6F4BC /* krati.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F48C0FD21FC45A8D00D6F4BC /* krati.jpg */; };
+		F48C0FDB1FC4600000D6F4BC /* ConnectionConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0FDA1FC4600000D6F4BC /* ConnectionConsumer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		F4433A711FC402680062A378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4433A741FC402680062A378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4433A761FC402680062A378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F48C0FCA1FC441E200D6F4BC /* TypeOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOneCell.swift; sourceTree = "<group>"; };
+		F48C0FCC1FC441F100D6F4BC /* TypeTwoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTwoCell.swift; sourceTree = "<group>"; };
+		F48C0FCE1FC44F7600D6F4BC /* TypeOneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOneCell.xib; sourceTree = "<group>"; };
+		F48C0FD01FC450E200D6F4BC /* TypeTwoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeTwoCell.xib; sourceTree = "<group>"; };
+		F48C0FD21FC45A8D00D6F4BC /* krati.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = krati.jpg; sourceTree = "<group>"; };
+		F48C0FD31FC45B0E00D6F4BC /* user1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user1.png; sourceTree = "<group>"; };
+		F48C0FD41FC45B1700D6F4BC /* user2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user2.png; sourceTree = "<group>"; };
+		F48C0FDA1FC4600000D6F4BC /* ConnectionConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConsumer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +94,54 @@
 		F4433A691FC402680062A378 /* TrackingDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F4433A6A1FC402680062A378 /* AppDelegate.swift */,
-				F4433A6C1FC402680062A378 /* ViewController.swift */,
+				F48C0FD91FC45EEA00D6F4BC /* TrackingConsumers */,
+				F48C0FD81FC45EDD00D6F4BC /* AppDelegate */,
+				F48C0FC81FC4419600D6F4BC /* HomeView */,
 				F4433A6E1FC402680062A378 /* Main.storyboard */,
 				F4433A711FC402680062A378 /* Assets.xcassets */,
+				F48C0FD31FC45B0E00D6F4BC /* user1.png */,
+				F48C0FD41FC45B1700D6F4BC /* user2.png */,
+				F48C0FD21FC45A8D00D6F4BC /* krati.jpg */,
 				F4433A731FC402680062A378 /* LaunchScreen.storyboard */,
 				F4433A761FC402680062A378 /* Info.plist */,
 			);
 			path = TrackingDemo;
+			sourceTree = "<group>";
+		};
+		F48C0FC81FC4419600D6F4BC /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F48C0FC91FC441AA00D6F4BC /* HomeTableViewCells */,
+				F4433A6C1FC402680062A378 /* ViewController.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		F48C0FC91FC441AA00D6F4BC /* HomeTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F48C0FCA1FC441E200D6F4BC /* TypeOneCell.swift */,
+				F48C0FCE1FC44F7600D6F4BC /* TypeOneCell.xib */,
+				F48C0FCC1FC441F100D6F4BC /* TypeTwoCell.swift */,
+				F48C0FD01FC450E200D6F4BC /* TypeTwoCell.xib */,
+			);
+			path = HomeTableViewCells;
+			sourceTree = "<group>";
+		};
+		F48C0FD81FC45EDD00D6F4BC /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F4433A6A1FC402680062A378 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F48C0FD91FC45EEA00D6F4BC /* TrackingConsumers */ = {
+			isa = PBXGroup;
+			children = (
+				F48C0FDA1FC4600000D6F4BC /* ConnectionConsumer.swift */,
+			);
+			path = TrackingConsumers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +206,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48C0FD51FC45C8D00D6F4BC /* user1.png in Resources */,
+				F48C0FCF1FC44F7600D6F4BC /* TypeOneCell.xib in Resources */,
+				F48C0FD11FC450E200D6F4BC /* TypeTwoCell.xib in Resources */,
+				F48C0FD71FC45C9200D6F4BC /* krati.jpg in Resources */,
 				F4433A751FC402680062A378 /* LaunchScreen.storyboard in Resources */,
+				F48C0FD61FC45C8F00D6F4BC /* user2.png in Resources */,
 				F4433A721FC402680062A378 /* Assets.xcassets in Resources */,
 				F4433A701FC402680062A378 /* Main.storyboard in Resources */,
 			);
@@ -211,7 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48C0FCD1FC441F100D6F4BC /* TypeTwoCell.swift in Sources */,
+				F48C0FCB1FC441E200D6F4BC /* TypeOneCell.swift in Sources */,
 				F4433A6D1FC402680062A378 /* ViewController.swift in Sources */,
+				F48C0FDB1FC4600000D6F4BC /* ConnectionConsumer.swift in Sources */,
 				F4433A6B1FC402680062A378 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

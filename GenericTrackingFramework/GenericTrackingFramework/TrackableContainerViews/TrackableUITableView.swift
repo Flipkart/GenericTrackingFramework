@@ -80,7 +80,10 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
+        if let trackableCell = cell as? ContentTrackableEntityProtocol {
+            let scrollTag = String(tableView.tag)
+            self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
+        } else if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
             let scrollTag = String(tableView.tag)
             self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
         }
