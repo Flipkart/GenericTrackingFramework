@@ -8,36 +8,36 @@
 
 import Foundation
 
-//protocol for processing any event which needs to be tracked and processed
+///protocol for processing any event which needs to be tracked and processed
 protocol EventProcessor {
 
-    //add handler for specified event
+    ///add handler for specified event
     func add(event: TrackableEvent, handler: TrackEventHandler)
 
-    //process the event
+    ///process the event
     func process(_ event: TrackableEvent)
 }
 
 
-//The singleton Manager for Tracking operations
-//Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
+///The singleton Manager for Tracking operations. Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
 public class TrackingManager: NSObject {
 
-    static let sharedInstance = TrackingManager()
+    ///Shared singleton
+    public static let sharedInstance = TrackingManager()
 
-    //counter to assign unique Id to each consumer at time of registering
+    ///counter to assign unique Id to each consumer at time of registering
     fileprivate var counter: Int = 1
 
-    //map of active event consumers against their unique Ids
+    ///map of active event consumers against their unique Ids
     internal var ruleConsumerMap: [Int: RuleBasedConsumer]
     
-    //map of active event handlers against each event Name
+    ///map of active event handlers against each event Name
     fileprivate var eventHandlerMap: [String: TrackEventHandler]
     
-    //the dataprocessor which holds the track data collection hierarchy for each tree
+    ///the dataprocessor which holds the track data collection hierarchy for each tree
     fileprivate var dataProcessor: TrackingDataProcessor
 
-    //Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
+    ///Note: Tracking Manager can be instantiated from anywhere but its preferable to use the sharedInstance in the same app
     override init() {
 
         ruleConsumerMap = [Int: RuleBasedConsumer]()
@@ -57,7 +57,7 @@ public class TrackingManager: NSObject {
 
 }
 
-//extending as event processor - handle each event and process it using the corresponding handler from the map
+///extending as event processor - handle each event and process it using the corresponding handler from the map
 extension TrackingManager: EventProcessor {
 
     public func add(event: TrackableEvent, handler: TrackEventHandler) {
@@ -69,9 +69,10 @@ extension TrackingManager: EventProcessor {
     }
 }
 
-//extending as RuleBasedEventPublisher - manage consumers and their rules and distribute data after applying rules specified by each consumer
+///extending as RuleBasedEventPublisher - manage consumers and their rules and distribute data after applying rules specified by each consumer
 extension TrackingManager: RuleBasedEventPublisher {
 
+    //registers a consumer
     public func register(consumer: EventConsumer, rules: [EventWiseRules]?) -> Bool {
 
         //assign uniqueId to each consumer
@@ -86,6 +87,7 @@ extension TrackingManager: RuleBasedEventPublisher {
         return true
     }
 
+    ///deregisters consumer
     public func deregister(consumer: EventConsumer) -> Bool {
 
         let uId = consumer.uniqueId
@@ -96,6 +98,7 @@ extension TrackingManager: RuleBasedEventPublisher {
         return false
     }
 
+    ///update the consumer rules
     public func update(rules: [EventWiseRules]?, consumer: EventConsumer) -> Bool {
 
         let id: Int = consumer.uniqueId
@@ -110,6 +113,7 @@ extension TrackingManager: RuleBasedEventPublisher {
         }
     }
 
+    ///distributes the track Data to consumers if their rules evaluate to true for this event and trackData
     public func distributeData(_ trackData: TrackingData?, for event: TrackableEvent) {
 
         if let data = trackData {

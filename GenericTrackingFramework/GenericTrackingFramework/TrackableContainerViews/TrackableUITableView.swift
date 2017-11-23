@@ -8,13 +8,13 @@
 
 import UIKit
 
-//Trackable swift Table View
+///Trackable swift Table View
 open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
 
     public var trackData: FrameData?
     public var isScrollable: Bool = true
     
-    //last offset which was tracked by the framework
+    ///last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
 
     fileprivate lazy var wrapperDelegate: TrackableTableViewWrapperDelegate? = self.initializeWrapperDelegate()
@@ -25,6 +25,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         return tempWrapperDelegate
     }
 
+    ///ScreenLevelTracker for this tableView which will send events. When this tracker is set and if this tableView is scrollable , register this tableView and add the identification tag.
     weak open var tracker: ScreenLevelTracker? {
 
         didSet {
@@ -36,6 +37,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         }
     }
 
+    ///Original UITableViewDelegate for this tableView
     override weak open var delegate: UITableViewDelegate? {
 
         get {
@@ -48,6 +50,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         }
     }
 
+    ///get all visible cells for this tableView if they are trackable (conform to ContentTrackableEntityProtocol)
     public func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
 
         return self.visibleCells.flatMap { (node) in
@@ -57,6 +60,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         }
     }
 
+    ///when this table view gets attached to the window , update the trackData with its absolute
     open override func didMoveToWindow() {
 
         if self.window != nil {
@@ -66,21 +70,27 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
     }
 }
 
+///wrapper delegate which contains both the ScreenLevelTracker for tracking events and UITableViewDelegate for original tableView delegate callbacks
 @objc public class TrackableTableViewWrapperDelegate: NSObject, UITableViewDelegate {
 
     @objc public weak var trackerDelegate: ScreenLevelTracker?
     @objc public weak var delegate: UITableViewDelegate?
     weak var tableView: UITableView?
 
+    ///instantiate this delegate with tableView for which the tracking has to be done
     @objc public init(tableView: UITableView) {
 
         self.tableView = tableView
         super.init()
     }
 
+    ///when table view cells are about to display , track the cell hierarchy for each cell for its trackable children and then forward to original UITableViewDelegate
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
+        if let trackableCell = cell as? ContentTrackableEntityProtocol {
+            let scrollTag = String(tableView.tag)
+            self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
+        } else if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
             let scrollTag = String(tableView.tag)
             self.trackerDelegate?.trackViewHierarchyFor(view: trackableCell, event: EventNames.viewWillDisplay, scrollTag: scrollTag, parentId: scrollTag)
         }
@@ -90,6 +100,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         }
     }
 
+    ///when table view ends displaying cell , track its view hierarchy for view Ended events and then forward to UITableViewDelegate
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         if let trackableCell = cell.contentView.subviews.first as? ContentTrackableEntityProtocol {
@@ -102,6 +113,7 @@ open class TrackableUITableView: UITableView, ContentTrackableEntityProtocol {
         }
     }
 
+    ///on scroll events , forward the scroll data to trackingDelegate and then to original UIScrollViewDelegate
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let newContentOffset = scrollView.contentOffset

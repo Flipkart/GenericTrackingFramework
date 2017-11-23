@@ -8,14 +8,15 @@
 
 import Foundation
 
-//Protocol for evaluating rules
+///Protocol for evaluating rules
 protocol RuleEvaluator {
     func evaluateRules(_ rules: [Rule], for event: TrackableEvent, data : TrackingData?) -> Bool
 }
 
-//This Rule Engine can evaluate specified set of rules
+///This Rule Engine can evaluate specified set of rules
 struct RuleEngine: RuleEvaluator {
 
+    ///To evaluate rule for a trackableEvent with associated TrackingData, we have to evaluate the validity of rule on the trackingData using the expected value of the Rule for the specified event
     func evaluateRule(_ rule: Rule, for event: TrackableEvent, data: TrackingData?) -> Bool {
         
         switch (event.eventType) {
@@ -94,7 +95,7 @@ struct RuleEngine: RuleEvaluator {
         return true
     }
 
-    //evaluates rules and logically AND the results
+    ///evaluates rules and logically AND the results
     func evaluateRules(_ rules: [Rule], for event: TrackableEvent, data : TrackingData?) -> Bool {
 
         var result: Bool = true

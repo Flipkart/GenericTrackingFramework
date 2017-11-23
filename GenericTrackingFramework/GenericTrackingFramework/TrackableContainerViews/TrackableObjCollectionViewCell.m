@@ -12,13 +12,16 @@
 @implementation TrackableObjCollectionViewCell
 
 #pragma mark ContentTrackableEntity Protocol methods
+///Sets the ScreenLevelTracker so that events can be tracked and processed
 -(void)setTracker:(ScreenLevelTracker *)tracker{
     _tracker = tracker;
 }
+///get array of trackable children for this collection view cell
 - (NSArray<id <ContentTrackableEntityProtocol>> * _Nullable)getTrackableChildren{
     return nil;
 }
 
+///when this collection view cell gets attached to the window, find its absolute frame with respect to window and update its tracking data & track view appear event 
 - (void)didMoveToWindow {
     [super didMoveToWindow];
     

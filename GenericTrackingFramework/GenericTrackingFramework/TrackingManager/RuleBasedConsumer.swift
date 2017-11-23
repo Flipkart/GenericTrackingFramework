@@ -8,16 +8,17 @@
 
 import Foundation
 
-//protocol to be followed to act as a consumer/listener of events
+///protocol to be followed to act as a consumer/listener of events
 protocol RuleBasedConsumer {
     
     var uniqueId: Int { get set }
     var consumer: EventConsumer { get set }
     
-    //specify the rules to be evaluated before consuming the event
+    ///specify the rules to be evaluated before consuming the event
     var rules: [EventWiseRules]? { get set }
 }
 
+///represents a consumer of tracking data which has its own rules for consuming data
 class RuleBasedConsumerModel: NSObject, RuleBasedConsumer {
     
     internal var rules: [EventWiseRules]?

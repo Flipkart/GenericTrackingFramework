@@ -15,7 +15,7 @@
 
 @implementation TrackableObjcUITableView
 
-//This init should be called to begin tracking the table view
+///This init should be called to begin tracking the table view
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -26,6 +26,7 @@
     return self;
 }
 
+///get all visible table view cells of this tableView if they conform to ContentTrackableEntityProtocol
 - (NSArray<id <ContentTrackableEntityProtocol>> * _Nullable)getTrackableChildren {
     
     NSMutableArray<id<ContentTrackableEntityProtocol>> *trackableChildren = [@[] mutableCopy];
@@ -40,7 +41,7 @@
     return trackableChildren;
 }
 
-//every time the tracker is set and view is scrollable, register the tableNode and give it a unique tag; create its track data
+///every time the tracker is set and view is scrollable, register the tableNode and give it a unique tag; create its track data
 -(void)setTracker:(ScreenLevelTracker * _Nullable)tracker {
     
     if (_isScrollable) {
@@ -54,13 +55,12 @@
     _wrapperDelegate.trackerDelegate = tracker;
 }
 
-//returns the wrapper delegate
+///returns the wrapper delegate
 -(id<UITableViewDelegate>)delegate {
     return super.delegate;
 }
 
-//set the delegate as wrapper delegate's delegate and then set wrapper delegate as the scrollview's delegate
-//this way we support both the delegates and pass on events to both
+///set the delegate as wrapper delegate's delegate and then set wrapper delegate as the scrollview's delegate this way we support both the delegates and pass on events to both
 -(void)setDelegate:(id<UITableViewDelegate>)delegate {
     
     _wrapperDelegate.delegate = delegate;
@@ -68,6 +68,7 @@
     super.delegate = _wrapperDelegate;
 }
 
+///when this table view gets attached to the window
 - (void)didMoveToWindow {
     
     [super didMoveToWindow];

@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Trackable Event Names
+///Trackable Event Names
 public class EventNames: NSObject {
     public static let viewWillDisplay = "viewWillDisplay"
     public static let viewStarted = "viewStarted"
@@ -21,23 +21,23 @@ public class EventNames: NSObject {
     public static let dataChange = "dataChange"
 }
 
-//Represents any event which fires tracking related changes
+///Represents any event which fires tracking related changes
 public class TrackableEvent: NSObject {
 
-    //Event Name
+    ///Event Name
     var eventType: String
     
-    //Event Specific Data
+    ///Event Specific Data
     var eventData: EventData?
 
-    //default init where data is nil
+    ///default init where data is nil
     init(_ eventName: String) {
 
         self.eventType = eventName
         self.eventData = nil
     }
 
-    //custom data with specified event name
+    ///custom data with specified event name
     init(eventType: String, eventData: EventData?) {
 
         self.eventType = eventType

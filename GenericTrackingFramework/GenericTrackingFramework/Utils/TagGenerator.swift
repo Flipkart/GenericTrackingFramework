@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-//Singleton class for uniquely assiging tag to each scrollable trackable view
+///Singleton class for uniquely assiging tag to each scrollable trackable view
 class TagGenerator {
 
     static let sharedInstance = TagGenerator()
@@ -19,6 +19,7 @@ class TagGenerator {
     private init() {
     }
 
+    ///gives the next available tag for tagging the containers
     func getNextAvailableTag() -> Int {
 
         nextAvailableTag += 1

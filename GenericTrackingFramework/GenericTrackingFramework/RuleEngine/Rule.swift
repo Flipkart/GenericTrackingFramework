@@ -8,7 +8,7 @@
 
 import Foundation
 
-//denotes the operation to be performed
+///denotes the operation to be performed
 @objc public enum EvaluationOperation: Int {
     case equal
     case greater
@@ -16,27 +16,29 @@ import Foundation
     case unequal
 }
 
-//Every rule is a check of propertyToEvaluate against requiredValue according to specified operation
+///Every rule is a check of propertyToEvaluate against requiredValue according to specified operation
 public class Rule: NSObject {
 
     var propertyToEvaluate: String
     var operation: EvaluationOperation
     var requiredValue: Any
 
-    init(property: String, evalOp: EvaluationOperation, value: Any) {
+    ///To instantiate a Rule, specify the property name, evaluationOperation and desired value
+    public init(property: String, evalOp: EvaluationOperation, value: Any) {
         self.propertyToEvaluate = property
         self.operation = evalOp
         self.requiredValue = value
     }
 }
 
-//Holds rules for given eventType
+///Holds rules for given eventType
 public class EventWiseRules: NSObject {
 
     var eventType: String
     var rules: [Rule]
 
-    init(eventType: String, rules: [Rule]) {
+    ///Every EventHandler cna be initiatilised using a eventType and array of Rule objects
+    public init(eventType: String, rules: [Rule]) {
         self.eventType = eventType
         self.rules = rules
     }

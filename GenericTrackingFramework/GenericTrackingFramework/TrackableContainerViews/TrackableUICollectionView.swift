@@ -8,13 +8,13 @@
 
 import UIKit
 
-//Trackable swift collection view
+///Trackable swift collection view
 open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityProtocol {
 
     public var trackData: FrameData?
     public var isScrollable: Bool = true
     
-    //last offset which was tracked by the framework
+    ///last offset which was tracked by the framework
     var lastTrackedOffset: CGPoint = CGPoint.zero
 
     fileprivate lazy var wrapperDelegate: TrackableCollectionViewWrapperDelegate? = self.initializeWrapperDelegate()
@@ -25,6 +25,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         return tempWrapperDelegate
     }
 
+    ///the ScreenLevelTracker which will send events for this collectionView
     weak open var tracker: ScreenLevelTracker? {
 
         didSet {
@@ -36,6 +37,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
     }
 
+    ///Original UICollectionViewDelegate for this collectionView
     override weak open var delegate: UICollectionViewDelegate? {
 
         get {
@@ -48,6 +50,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
     }
 
+    ///get all the visible cells for this collection view if they are trackable (conform to ContentTrackableEntityProtocol)
     public func getTrackableChildren() -> [ContentTrackableEntityProtocol]? {
 
         return self.visibleCells.flatMap { (node) in
@@ -57,6 +60,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
     }
 
+    ///When this collection view gets attached to window, update its absolute frame with respect to the window and track view appear event
     open override func didMoveToWindow() {
 
         if self.window != nil {
@@ -66,6 +70,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
     }
 }
 
+///The Wrapper delegate which wraps both the ScreenLevelTracking for tracking events and original UICollectionViewDelegate
 @objc public class TrackableCollectionViewWrapperDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @objc public weak var trackerDelegate: ScreenLevelTracker?
@@ -78,6 +83,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         super.init()
     }
 
+    ///when collection view is about to display cell , send ViewWillDisplay event to tracker and then forward to UICollectionViewDelegate
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 
         if let trackableCell = cell as? ContentTrackableEntityProtocol {
@@ -90,6 +96,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
     }
 
+    ///when collection view ends displaying cell , send the ViewEnded event to tracker and then forward to UICollectionViewDelegate
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 
         if let trackableCell = cell as? ContentTrackableEntityProtocol {
@@ -102,6 +109,7 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
     }
 
+    ///scroll view delegate method , first tracks the scroll event and then forwards to the UIScrollViewDelegate
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let newContentOffset: CGPoint = scrollView.contentOffset
@@ -119,38 +127,8 @@ open class TrackableUICollectionView: UICollectionView, ContentTrackableEntityPr
         }
 
         self.delegate?.scrollViewDidScroll?(scrollView)
-    }/*
-
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        self.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
     }
-
-    //CollectionViewFlowDelegate related methods
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        if let flowDelegate = self.delegate as? UICollectionViewDelegateFlowLayout {
-            return flowDelegate.collectionView?(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath) ?? CGSize.zero
-        }
-        return CGSize.zero
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        if let flowDelegate = self.delegate as? UICollectionViewDelegateFlowLayout {
-            return flowDelegate.collectionView?(collectionView, layout: collectionViewLayout, insetForSectionAt: section) ?? UIEdgeInsets.zero
-        }
-        return UIEdgeInsets.zero
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-
-        if let flowDelegate = self.delegate as? UICollectionViewDelegateFlowLayout {
-            return flowDelegate.collectionView?(collectionView, layout: collectionViewLayout, referenceSizeForHeaderInSection: section) ?? CGSize.zero
-        }
-        return CGSize.zero
-    }
-    */
+    
     public override func forwardingTarget(for aSelector: Selector!) -> Any? {
         guard let delegate = self.delegate else {
             return nil

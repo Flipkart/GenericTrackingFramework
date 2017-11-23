@@ -8,13 +8,13 @@
 
 import Foundation
 
-//The data structure for holding the track data hierarchy corresponding to view hierarchy of a screen
+///The data structure for holding the track data hierarchy corresponding to view hierarchy of a screen
 public class TrackingDataCollection: NSObject {
 
-    //map of unique id to TrackDataNode - to be used for directly accesing the node data
+    ///map of unique id to TrackDataNode - to be used for directly accesing the node data
     var trackIdNodeMap: [String: TrackDataNode]
     
-    //the tree hierarchy itself
+    ///the tree hierarchy itself
     var trackDataTree: TrackDataNode?
 
     override init() {
@@ -24,7 +24,7 @@ public class TrackingDataCollection: NSObject {
         super.init()
     }
 
-    //adding data for a node with specified parent Id
+    ///adding data for a node with specified parent Id
     func addData(nodeInfo: NodeInfo, parentId: String?) {
 
         if trackIdNodeMap[nodeInfo.trackingData.uniqueId] != nil {
@@ -65,7 +65,7 @@ public class TrackingDataCollection: NSObject {
         trackIdNodeMap[nodeInfo.trackingData.uniqueId] = newNode
     }
 
-    //delete data for this node and each ndoe in its subtree and return the deleted nodes
+    ///delete data for this node and each ndoe in its subtree and return the deleted nodes
     func deleteData(nodeId: String) -> [TrackingData]? {
 
         var deletedTrackDataArr: [TrackingData]? = []
@@ -103,16 +103,18 @@ public class TrackingDataCollection: NSObject {
         return deletedTrackDataArr
     }
 
+    ///fetches the TrackDataNode for this uniqueId
     func getData(for dataId: String) -> TrackDataNode? {
         return trackIdNodeMap[dataId]
     }
 
+    ///updates the data for given unique Id with specified NodeInfo
     func update(nodeInfo: NodeInfo, for dataId: String) {
         trackIdNodeMap[dataId]?.nodeInfo = nodeInfo
     }
 }
 
-//Represents the node in the data structure : holds NodeInfo, parentNode reference,childNodes as array
+///Represents the node in the data structure : holds NodeInfo, parentNode reference,childNodes as array
 class TrackDataNode {
 
     var nodeInfo: NodeInfo

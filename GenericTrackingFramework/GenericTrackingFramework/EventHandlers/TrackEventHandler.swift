@@ -8,23 +8,25 @@
 
 import Foundation
 
-//protocol to be followed by each event handler
+///protocol to be followed by each event handler
 @objc public protocol TrackEventHandler {
     weak var trackingManager: TrackingManager? { get }
     func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor)
 }
 
-//handler for view will display events - this adds tracking data in track collection hierarchy
+///handler for view will display events - this adds tracking data in track collection hierarchy
 class ViewWillDisplayEventHandler: NSObject, TrackEventHandler {
 
     weak public var trackingManager: TrackingManager?
 
+    ///EventHandler for ViewWillDisplay event
     init(trackingManager: TrackingManager) {
 
         super.init()
         self.trackingManager = trackingManager
     }
 
+    ///Handles viewWillDisplay event by creating a new data node in DataProcessor and distributes this event to the consumers
     internal func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor) {
 
         if let nodeInfo = NodeInfo(from: event) {
@@ -41,7 +43,7 @@ class ViewWillDisplayEventHandler: NSObject, TrackEventHandler {
     }
 }
 
-//handler called when view becomes visible - updates the visiblity % and fires view events for all children of this node
+///handler called when view becomes visible - updates the visiblity % and fires view events for all children of this node
 class ViewStartedEventHandler: NSObject, TrackEventHandler {
 
     weak public var trackingManager: TrackingManager?
@@ -52,6 +54,7 @@ class ViewStartedEventHandler: NSObject, TrackEventHandler {
         self.trackingManager = trackingManager
     }
 
+    ///Handles ViewStarted event by updating its visibility in its corresponding data node in DataProcessor and distributes this event to the consumers
     internal func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor) {
 
         if let data = event.eventData as? ViewEventData {
@@ -69,7 +72,7 @@ class ViewStartedEventHandler: NSObject, TrackEventHandler {
     }
 }
 
-//handler for view ended events
+///handler for view ended events
 class ViewEndedEventHandler: NSObject, TrackEventHandler {
 
     weak public var trackingManager: TrackingManager?
@@ -80,6 +83,7 @@ class ViewEndedEventHandler: NSObject, TrackEventHandler {
         self.trackingManager = trackingManager
     }
 
+    ///Handles ViewEnded event by deleting its corresponding data node from TrackingDataProcessor and distributing it
     internal func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor) {
 
         if let data = event.eventData as? ViewEventData {
@@ -99,7 +103,7 @@ class ViewEndedEventHandler: NSObject, TrackEventHandler {
     }
 }
 
-//handler for visiblity change events like app moving to/from background,app getting locked, VC view disappear/appear when screen changes
+///handler for visiblity change events like app moving to/from background,app getting locked, VC view disappear/appear when screen changes
 class VisibilityChangeEventHandler: NSObject, TrackEventHandler {
 
     weak public var trackingManager: TrackingManager?
@@ -110,6 +114,7 @@ class VisibilityChangeEventHandler: NSObject, TrackEventHandler {
         self.trackingManager = trackingManager
     }
 
+    ///Handles VisibilityChangeEvents by updating the visibility in data node and distributing the data
     internal func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor) {
 
         if let data = event.eventData as? VisibilityChangeEventData {
@@ -129,7 +134,7 @@ class VisibilityChangeEventHandler: NSObject, TrackEventHandler {
     }
 }
 
-//handler for scroll events
+///handler for scroll events
 class ScrollEventHandler: NSObject, TrackEventHandler {
 
     weak public var trackingManager: TrackingManager?
@@ -140,6 +145,7 @@ class ScrollEventHandler: NSObject, TrackEventHandler {
         self.trackingManager = trackingManager
     }
 
+    ///handles Scroll events by updating % visibility of all nodes and their children and distributes the data
     internal func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor) {
 
         if let eventData = event.eventData {
@@ -156,7 +162,7 @@ class ScrollEventHandler: NSObject, TrackEventHandler {
     }
 }
 
-//handler for content click events
+///handler for content click events
 class ContentClickHandler: NSObject, TrackEventHandler {
 
     weak public var trackingManager: TrackingManager?
@@ -167,6 +173,7 @@ class ContentClickHandler: NSObject, TrackEventHandler {
         self.trackingManager = trackingManager
     }
 
+    ///handles contentClick event by distributing it
     internal func handleEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor) {
         
         if let eventData = event.eventData {
@@ -181,7 +188,7 @@ class ContentClickHandler: NSObject, TrackEventHandler {
         }
     }
     
-    //Handling all click events
+    ///Handling all click events
     private func processClickEvent(event: TrackableEvent, dataProcessor: TrackingDataProcessor, eventData: ContentClickData) {
         guard let trackData = dataProcessor.fetchData(for: eventData.uniqueId, screen: eventData.screen) else {
             return

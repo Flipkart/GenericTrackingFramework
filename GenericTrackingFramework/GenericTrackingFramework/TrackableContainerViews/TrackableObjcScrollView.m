@@ -9,13 +9,13 @@
 #import "TrackableObjcScrollView.h"
 #import <GenericTrackingFramework/GenericTrackingFramework-Swift.h>
 
-//Custom delegate for the TrackableObjcScrollView ; This has both the tracking Delegate as well as delegate set from its creating view
+///Custom delegate for the TrackableObjcScrollView ; This has both the tracking Delegate as well as delegate set from its creating view
 @interface TrackableScrollViewDelegate : NSObject<UIScrollViewDelegate>
 
 @property (nonatomic,weak) ScreenLevelTracker *trackerDelegate;
 @property (nonatomic,weak) id<UIScrollViewDelegate> delegate;
 
-//weak reference to tracked scroll view so that last tracked offset can be fetched
+///weak reference to tracked scroll view so that last tracked offset can be fetched
 @property (nonatomic,weak) TrackableObjcScrollView *trackedScrollView;
 
 - (instancetype)initWithScrollView:(TrackableObjcScrollView *)scrollView;
@@ -24,6 +24,7 @@
 
 @implementation TrackableScrollViewDelegate
 
+///Instantiate with ScrollView to be tracked
 - (instancetype)initWithScrollView:(TrackableObjcScrollView *)scrollView
 {
     self = [super init];
@@ -32,7 +33,7 @@
     }
     return self;
 }
-
+///when scroll view scrolls. send the scrolling event to EventThrottler and then forward the scrolling event to original scrollview delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     //track the scroll event with the last tracked offset
@@ -53,7 +54,7 @@
 
 @implementation TrackableObjcScrollView
 
-//Note: This is the init which will register the scroll view for tracking; this init must be called
+///Note: This is the init which will register the scroll view for tracking; this init must be called
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -64,7 +65,7 @@
     return self;
 }
 
-//every time the tracker is set and view is scrollable, register the scrollview and give it a unique tag; create its track data
+///every time the tracker is set and view is scrollable, register the scrollview and give it a unique tag; create its track data
 -(void)setTracker:(ScreenLevelTracker * _Nullable)tracker {
     
     if (_isScrollable) {
@@ -77,13 +78,12 @@
     _wrapperDelegate.trackerDelegate = tracker;
 }
 
-//returns the wrapper delegate
+///returns the wrapper delegate
 -(id<UIScrollViewDelegate>)delegate {
     return super.delegate;
 }
 
-//set the delegate as wrapper delegate's delegate and then set wrapper delegate as the scrollview's delegate
-//this way we support both the delegates and pass on events to both
+///set the delegate as wrapper delegate's delegate and then set wrapper delegate as the scrollview's delegate this way we support both the delegates and pass on events to both
 -(void)setDelegate:(id<UIScrollViewDelegate>)delegate {
     
     _wrapperDelegate.delegate = delegate;
@@ -91,11 +91,12 @@
     super.delegate = _wrapperDelegate;
 }
 
+///get array of trackable children for this scroll view
 - (NSArray<id <ContentTrackableEntityProtocol>> * _Nullable)getTrackableChildren {
     return self.trackableChildren;
 }
 
-//when view moves to window, update te frame and track view appear event
+///when view moves to window, update its trackingData with absolute frame with respect to window and track view appear event
 - (void)didMoveToWindow {
     
     [super didMoveToWindow];
